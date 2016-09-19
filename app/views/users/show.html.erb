@@ -1,3 +1,24 @@
 <p><%= @user.f_name %></p>
+<%= link_to "Edit Account", edit_user_path(@user) %>
 
-<%= link_to "Home", root_path %>
+
+<div class="attributes">
+  Name Kind Budget Delivery Date Word Count
+</div>
+<% @projects.each do |project| %>
+  <div>
+    <%= project.name %>
+    <%= project.kind %>
+    <%= project.budget %>
+    <%= project.delivery_date %>
+    <%= project.word_count %>
+    <%= link_to "See Project", user_project_path(project[:id]) %>
+  </div>
+ <% end %>
+
+
+<p>
+  <%= link_to "Create New Project", new_user_project_path(@user) %>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <%= link_to "Home", root_path %>
+</p>

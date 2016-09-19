@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 
   root to: "static_pages#index"
 
-  resources :users, only: [:new, :create, :show]
+
+  resources :users, only: [:new, :create, :show, :edit, :update] do
+    resources :projects, only: [:new, :show, :create, :edit, :update]
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
+
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
 

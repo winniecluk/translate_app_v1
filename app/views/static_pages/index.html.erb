@@ -1,12 +1,73 @@
-<h1>Hello!</h1>
+<h1>App_Name</h1>
   <% if current_user %>
     Welcome, <%= current_user.f_name %>
-    &nbsp;&nbsp;|&nbsp;&nbsp; |
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to "Dashboard", user_path(current_user) %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
 <!-- session_path leads to sessions#destroy-->
-  <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
+    <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
   <% else %>
     <%= link_to 'Log In', login_path %>
     &nbsp;&nbsp;|&nbsp;&nbsp;
     <%= link_to 'Sign Up', new_user_path %>
   <% end %>
-</p>
+
+<div class="description">
+  <p>
+    Welcome to APP_NAME, an online platform for sourcing, completing,
+    and storing translation projects! APP_NAME is an application for
+    clients with translation, transcription, and graphic design projects;
+    translation agencies and project managers; and translators, transcribers,
+    and graphic designers looking for work.
+  </p>
+  <hr>
+
+    <div class="role-description">
+      <p>
+        <strong>Clients have documents they need translated, or they have recording they need transcribed
+        and/or translated.</strong>
+      </p>
+
+      With APP_NAME, you can...
+      <ul>
+        <li>
+          quickly find available translators or agencies with the particular qualifications you need
+        </li>
+        <li>
+          make them an offer with the click of a button
+        </li>
+        <li>
+          receive quick quotes for cost and turnaround time and easily compare quotes
+        </li>
+        <li>
+          view each project as it's being worked on
+        </li>
+        <li>
+          store all completed projects for your later reference
+        </li>
+      </ul>
+    </div>
+    <div class="role-description">
+      <p>
+        <strong>Vendors find clients and work on projects.</strong>
+      </p>
+
+      With APP_NAME, you can...
+      <ul>
+        <li>
+          quickly find clients and projects that suit your needs
+        </li>
+        <li>
+          see the profiles of the companies you're working for
+        </li>
+        <li>
+          work with other vendors on the same project in real time (pending)
+        </li>
+        <li>
+          receive online payment (pending)
+        </li>
+      </ul>
+    </div>
+</div>
+</div>
+
