@@ -9,17 +9,17 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @project = @user.projects.new
+    @project = current_user.projects.new
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @project = @user.projects.new(project_params)
+    @project = current_user.projects.new(project_params)
     if @project.save
-      redirect_to user_path(@user)
+      redirect_to accounts_path
+      flash[:notice] = "You created a new project!"
     else
       render :new
+      flash[:notice] = "Incomplete fields."
     end
   end
 
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
-      redirect_to user_path(@project.user_id)
+      redirect_to accounts_path
       flash[:notice] = "You've updated this project!"
     else
       render :edit
@@ -38,11 +38,30 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to projects_path
+  end
+
 private
 
   def project_params
-    params.require(:project).permit(:name, :kind, :budget,
-      :delivery_date, :word_count, :need_translator, :need_transcriber,
-      :need_graphic_designer, :special_request, :sample_text)
+    params.require(:project).permit(
+      :name,
+      :kind,
+      :budget,
+      :delivery_date,
+      :word_count,
+      :special_request,
+      :sample_text,
+      :need_translator,
+      :need_transcriber,
+      :need_graphic_designer,
+      :assigned,
+      :completed,
+      :language_1,
+      :language_2
+      )
   end
 end

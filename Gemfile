@@ -1,7 +1,15 @@
 source 'https://rubygems.org'
 
-#add carrierwave for user pictures
-gem 'carrierwave'
+
+# add paperclip
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
+
+#add bootstrap
+gem 'bootstrap-sass'
+
+#add bootstrap forms
+gem 'bootstrap_form'
 
 #add pry for binding.pry
 gem 'pry'
@@ -40,6 +48,10 @@ group :development, :test do
 end
 
 group :development do
+
+  # add dotenv-rails
+  gem 'dotenv-rails'
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

@@ -1,42 +1,271 @@
-<%= @user.job %> Account
+<p class="notice"><%= notice %></p>
+<p class="notice"><%= alert %></p>
 
-<%= form_for @user do |f| %>
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :f_name %>
+<p><%= @user.f_name %> <%= @user.l_name %></p>
+
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label "User Picture" %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.file_field :avatar %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :l_name %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :first_name %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.text_field :f_name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :last_name %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :l_name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :email %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :email %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :phone_number %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :phone_number %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :zip_code %>
-    <%= f.text_field :zip_code %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :city %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :city %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :country %>
-    <%= f.text_field :country %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :country %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :country %>
+    </div>
   </div>
-  <div class="field">
-  Say something about yourself!<br>
-    <%= f.label :bio %>
-    <%= f.text_field :bio %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :bio %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :bio %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :web_link %>
-    <%= f.text_field :web_link %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :web_link %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :web_link %>
+    </div>
+  </div>
+  <% if @user.is_client %>
+    <div class="row">
+      <div class="col-xs-2 field">
+        <%= f.label :company %>
+      </div>
+      <div class="col-xs-6 field">
+          <%= f.text_field :company %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 field">
+        <%= f.label :position %>
+      </div>
+      <div class="col-xs-6 field">
+          <%= f.text_field :position %>
+      </div>
+    </div>
+  <% end %>
+  <% if @user.is_translator %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :language_pair %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.select :language_1, ['Arabic', 'Armenian, Western', 'Armenian, Eastern', 'Bengali', 'Bulgarian', 'Burmese', 'Cebuano', 'Chinese, Simplified',
+        'Chinese, Traditional', 'Croatian', 'Czech', 'Danish', 'Dari', 'Dutch', 'English', 'Farsi', 'Finnish', 'French (Canadian)', 'French (Belgian)', 'French',
+        'German', 'Greek', 'Hebrew', 'Hindi', 'Hungarian', 'Hmong', 'Indonesian', 'Italian', 'Japanese', 'Khmer', 'Korean', 'Norwegian', 'Polish',
+        'Portuguese (Brazil)', 'Portuguese (European)', 'Punjabi', 'Russian', 'Spanish', 'Swedish', 'Tagalog', 'Thai', 'Turkish', 'Ukrainian',
+        'Urdu', 'Vietnamese'] %> to
+      <%= f.select :language_2, ['Arabic', 'Armenian, Western', 'Armenian, Eastern', 'Bengali', 'Bulgarian', 'Burmese', 'Cebuano', 'Chinese, Simplified',
+        'Chinese, Traditional', 'Croatian', 'Czech', 'Danish', 'Dari', 'Dutch', 'English', 'Farsi', 'Finnish', 'French (Canadian)',
+        'French (Belgian)', 'French', 'German', 'Greek', 'Hebrew', 'Hindi', 'Hungarian', 'Hmong', 'Indonesian', 'Italian', 'Japanese', 'Khmer',
+        'Korean', 'Norwegian', 'Polish', 'Portuguese (Brazil)', 'Portuguese (European)', 'Punjabi', 'Russian', 'Spanish', 'Swedish', 'Tagalog',
+        'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Vietnamese'] %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :rate_per_word %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.number_field :rate_per_word %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :minimum_rate %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.number_field :minimum_rate %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :rush_rate_per_word %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.number_field :rush_rate_per_word %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :rush_minimum %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.number_field :rush_minimum %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :notary_fee %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.number_field :notary_fee %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :specialization %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :specialization %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3 field">
+      <%= f.label "ATA Certified" %>
+      <%= f.check_box :ata_certified %>
+    </div>
+    <div class="col-xs-3 field">
+      <%= f.label "Judicial Court Certified" %>
+      <%= f.check_box :judicial_court %>
+    </div>
+    <div class="col-xs-3 field">
+      <%= f.label "Available Now?" %>
+      <%= f.check_box :available %>
+    </div>
+    <div class="col-xs-3 field">
+      <%= f.label "Use Trados?" %>
+      <%= f.check_box :trados %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :trados_version %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.text_field :trados_version %>
+    </div>
+  </div>
+  <% end %>
+  <% if @user.is_transcriber %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :rate_per_minute %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.number_field :rate_per_minute, :class => 'text_field', :step => 0.01 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :rate_per_work_hour %>
+    </div>
+    <div class="col-xs-6 field">
+    <%= f.number_field :rate_per_work_hour, :class => 'text_field', :step => 0.01 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :rush_rate_per_minute %>
+    </div>
+    <div class="col-xs-6 field">
+    <%= f.number_field :rush_rate_per_minute, :class => 'text_field', :step => 0.01 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :minimum_rate %>
+    </div>
+    <div class="col-xs-6 field">
+    <%= f.number_field :minimum_rate, :class => 'text_field', :step => 0.01 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :rush_minimum %>
+    </div>
+    <div class="col-xs-6 field">
+    <%= f.number_field :rush_minimum, :class => 'text_field', :step => 0.01 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3 field">
+      <%= f.label "Available Now?" %>
+      <%= f.check_box :available %>
+    </div>
+  </div>
+  <% end %>
+  <% if @user.is_graphic_designer %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label "Hourly Rate" %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.number_field :rate_per_work_hour, :class => 'text_field', :step => 0.01 %>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-xs-3 field">
+        <%= f.label "Available Now?" %>
+        <%= f.check_box :available %>
+      </div>
+  </div>
+  <% end %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label "Enter Password to Update Profile" %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.password_field :password %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label "Re-enter password" %>
+    </div>
+    <div class="col-xs-6 field">
+        <%= f.password_field :password_confirmation %>
+    </div>
   </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>

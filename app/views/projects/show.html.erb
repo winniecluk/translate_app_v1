@@ -1,4 +1,8 @@
-This is its project page.
+<p>This is its project page.</p>
+<%= @project.name %>
 
-<%= link_to "Edit Project Details", edit_user_project_path(@project) %>
-<%= link_to "Home", root_path %>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<%= link_to "Edit Project", edit_project_path %>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<%= link_to "Delete Project", project_path, method: :delete, data: { confirm: "Are you sure?"} %>

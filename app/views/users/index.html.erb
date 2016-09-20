@@ -1,0 +1,283 @@
+<h1>Vendors</h1>
+
+<h2>Translators</h2>
+<div class="container">
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Country
+    </th>
+    <th>
+      Time Zone
+    </th>
+    <th>
+      Rate Per Word
+    </th>
+    <th>
+      Minimum Rate
+    </th>
+    <th>
+      Rush Rate Per Word
+    </th>
+    <th>
+      Rush Minimum
+    </th>
+    <th>
+      ATA Certified?
+    </th>
+    <th>
+      Judicial Court
+    </th>
+    <th>
+      Trados?
+    </th>
+    <th>
+      Trados Version
+    </th>
+    <th>
+      Available Now?
+    </th>
+    <th>
+      Notary Fee
+    </th>
+  </tr>
+  <% if @users.select { |user|
+    user.is_translator? }.count == 0 %>
+    <tr>
+      <td>
+        <%= "None currently." %>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+  <% else %>
+  <% @users.each do |user| %>
+    <% if user.is_translator %>
+      <tr>
+        <td>
+          <%= user.f_name %> <% user.l_name %>
+        </td>
+        <td>
+          <%= user.country %>
+        </td>
+        <td>
+        </td>
+        <td>
+          <%= user.rate_per_word %>
+        </td>
+        <td>
+          <%= user.minimum_rate %>
+        </td>
+        <td>
+          <%= user.rush_rate_per_word %>
+        </td>
+        <td>
+          <%= user.rush_minimum %>
+        </td>
+        <td>
+          <% if user.ata_certified %>
+            yes
+          <% else %>
+            no
+          <% end %>
+        </td>
+        <td>
+          <% if user.judicial_court %>
+            yes
+          <% else %>
+            no
+          <% end %>
+        </td>
+        <td>
+          <% if user.trados %>
+            yes
+          <% else %>
+            no
+          <% end %>
+        </td>
+        <td>
+          <%= user.trados_version %>
+        </td>
+        <td>
+          <% if user.available %>
+            yes
+          <% else %>
+            no
+          <% end %>
+        </td>
+        <td>
+          <%= user.notary_fee %>
+        </td>
+      </tr>
+    <% end %>
+    <% end %>
+    <% end %>
+  </table>
+
+
+  <h2>Transcribers</h2>
+  <table class="table table-striped table-responsive">
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Country
+      </th>
+      <th>
+        Time Zone
+      </th>
+      <th>
+        Rate Per Minute
+      </th>
+      <th>
+        Rate Per Work Hour
+      </th>
+      <th>
+        Minimum Rate
+      </th>
+      <th>
+        Rush Rate Per Minute
+      </th>
+      <th>
+        Rush Minimum
+      </th>
+      <th>
+        Available Now?
+      </th>
+    </tr>
+    <% if @users.select { |user|
+      user.is_transcriber? }.count == 0 %>
+      <tr>
+        <td>
+          <%= "None currently." %>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+    <% else %>
+    <% @users.each do |user| %>
+      <% if user.is_transcriber %>
+        <tr>
+          <td>
+            <%= user.f_name %> <% user.l_name %>
+          </td>
+          <td>
+            <%= user.country %>
+          </td>
+          <td>
+          </td>
+          <td>
+            <%= user.rate_per_minute %>
+          </td>
+          <td>
+            <%= user.rate_per_work_hour %>
+          </td>
+          <td>
+            <%= user.minimum_rate %>
+          </td>
+          <td>
+            <%= user.rush_rate_per_minute %>
+          </td>
+          <td>
+            <%= user.rush_minimum %>
+          <td>
+            <%= user.notary_fee %>
+          </td>
+        </tr>
+      <% end %>
+      <% end %>
+      <% end %>
+    </table>
+
+    <h2>Graphic Designers</h2>
+    <table class="table table-striped table-responsive">
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Country
+        </th>
+        <th>
+          Time Zone
+        </th>
+        <th>
+          Rate Per Work Hour
+        </th>
+        <th>
+          Available Now?
+        </th>
+      </tr>
+      <% if @users.select { |user|
+        user.is_graphic_designer? }.count == 0 %>
+        <tr>
+          <td>
+            <%= "None currently." %>
+          </td>
+          <td>
+          </td>
+          <td>
+          </td>
+          <td>
+          </td>
+          <td>
+          </td>
+        </tr>
+      <% else %>
+      <% @users.each do |user| %>
+        <% if user.is_transcriber %>
+          <tr>
+            <td>
+              <%= user.f_name %> <% user.l_name %>
+            </td>
+            <td>
+              <%= user.country %>
+            </td>
+            <td>
+            </td>
+            <td>
+              <%= user.rate_per_work_hour %>
+            </td>
+              <% if user.available %>
+                yes
+              <% else %>
+                no
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <% end %>
+        <% end %>
+      </table>

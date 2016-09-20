@@ -9,35 +9,66 @@
 
 <div class="container">
 <%= form_for @user do |f| %>
-  <div class="field">
+<div class="row">
+  <div class="col-xs-2 field">
     <%= f.label :first_name %>
+  </div>
+  <div class="col-xs-6 field">
     <%= f.text_field :f_name %>
   </div>
-  <div class="field">
+</div>
+<div class="row">
+  <div class="col-xs-2 field">
     <%= f.label :last_name %>
-    <%= f.text_field :l_name %>
   </div>
-  <div class="field">
+    <div class="col-xs-6 field">
+    <%= f.text_field :l_name %>
+    </div>
+</div>
+<div class="row">
+  <div class="col-xs-2 field">
     <%= f.label :email %>
+  </div>
+  <div class="col-xs-6 field">
     <%= f.text_field :email %>
   </div>
-  <div class="field">
+</div>
+<div class ="row">
+  <div class="col-xs-2 field">
     <%= f.label :password %>
-    <%= f.password_field :password %> Password must be 6 to 20 characters.
   </div>
-  <div class="field">
+  <div class="col-xs-6 field">
+    <%= f.password_field :password %>
+  </div>
+  <div class="col-xs-4 field">
+  Password must be 6 to 20 characters.
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-2 field">
     <%= f.label :password_confirmation %>
+  </div>
+  <div class="col-xs-6 field">
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= f.radio_button :job, "client" %>
-    <%= f.label :job, "Client" %>
-    <%= f.radio_button :job, "translator" %>
-    <%= f.label :job, "Translator" %>
-    <%= f.radio_button :job, "transcriber" %>
-    <%= f.label :job, "Transcriber" %>
-    <%= f.radio_button :job, "graphic_designer" %>
-    <%= f.label :job, "Graphic Designer" %>
+</div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.check_box :is_client %>
+      <%= f.label "Client" %>
+    </div>
+    <div class="col-xs-2 field">
+      <%= f.check_box :is_translator %>
+      <%= f.label "Translator" %>
+    </div>
+    <div class="col-xs-2 field">
+      <%= f.check_box :is_transcriber %>
+      <%= f.label "Transcriber" %>
+    </div>
+    <div class="col-xs-4 field">
+      <%= f.check_box :is_graphic_designer %>
+      <%= f.label "Graphic Designer" %>
+    </div>
   </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>

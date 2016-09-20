@@ -1,7 +1,7 @@
 <h1>Edit Project</h1>
 <p class="notice"><%= notice %></p>
 
-<%= form_for [current_user, @project] do |f| %>
+<%= form_for @project do |f| %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -9,6 +9,23 @@
   <div class="field">
     <%= f.label :type %>
     <%= f.select :kind, ['Legal', 'Business', 'Medical', 'Technical', 'Personal', 'General']%>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :language_combination %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.select :language_1, ['Arabic', 'Armenian, Western', 'Armenian, Eastern', 'Bengali', 'Bulgarian', 'Burmese', 'Cebuano', 'Chinese, Simplified',
+        'Chinese, Traditional', 'Croatian', 'Czech', 'Danish', 'Dari', 'Dutch', 'English', 'Farsi', 'Finnish', 'French (Canadian)', 'French (Belgian)', 'French',
+        'German', 'Greek', 'Hebrew', 'Hindi', 'Hungarian', 'Hmong', 'Indonesian', 'Italian', 'Japanese', 'Khmer', 'Korean', 'Norwegian', 'Polish',
+        'Portuguese (Brazil)', 'Portuguese (European)', 'Punjabi', 'Russian', 'Spanish', 'Swedish', 'Tagalog', 'Thai', 'Turkish', 'Ukrainian',
+        'Urdu', 'Vietnamese'] %> to
+      <%= f.select :language_2, ['Arabic', 'Armenian, Western', 'Armenian, Eastern', 'Bengali', 'Bulgarian', 'Burmese', 'Cebuano',
+        'Chinese, Simplified', 'Chinese, Traditional', 'Croatian', 'Czech', 'Danish', 'Dari', 'Dutch', 'English', 'Farsi', 'Finnish',
+        'French (Canadian)', 'French (Belgian)', 'French', 'German', 'Greek', 'Hebrew', 'Hindi', 'Hungarian', 'Hmong', 'Indonesian',
+        'Italian', 'Japanese', 'Khmer', 'Korean', 'Norwegian', 'Polish', 'Portuguese (Brazil)', 'Portuguese (European)', 'Punjabi',
+        'Russian', 'Spanish', 'Swedish', 'Tagalog', 'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Vietnamese'] %>
+    </div>
   </div>
   <div class="field">
     <%= f.label :proposed_budget %>
@@ -31,7 +48,13 @@
     <%= f.label :sample_text %>
     <%= f.text_field :sample_text %>
   </div>
+  <div class="field">
+    <%= f.label :assigned? %>
+    <%= f.check_box :assigned %>
+  </div>
+  <div class="field">
+    <%= f.label :completed? %>
+    <%= f.check_box :completed %>
+  </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>
-
-<%= link_to "Home", root_path %>

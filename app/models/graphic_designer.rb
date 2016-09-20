@@ -1,0 +1,2 @@
+class GraphicDesigner < ApplicationRecord
+end

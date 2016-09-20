@@ -1,17 +1,3 @@
-<h1>App_Name</h1>
-  <% if current_user %>
-    Welcome, <%= current_user.f_name %>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <%= link_to "Dashboard", user_path(current_user) %>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-<!-- session_path leads to sessions#destroy-->
-    <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
-  <% else %>
-    <%= link_to 'Log In', login_path %>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <%= link_to 'Sign Up', new_user_path %>
-  <% end %>
-
 <div class="description">
   <p>
     Welcome to APP_NAME, an online platform for sourcing, completing,
@@ -22,52 +8,66 @@
   </p>
   <hr>
 
-    <div class="role-description">
-      <p>
-        <strong>Clients have documents they need translated, or they have recording they need transcribed
-        and/or translated.</strong>
-      </p>
-
-      With APP_NAME, you can...
-      <ul>
-        <li>
-          quickly find available translators or agencies with the particular qualifications you need
-        </li>
-        <li>
-          make them an offer with the click of a button
-        </li>
-        <li>
-          receive quick quotes for cost and turnaround time and easily compare quotes
-        </li>
-        <li>
-          view each project as it's being worked on
-        </li>
-        <li>
-          store all completed projects for your later reference
-        </li>
-      </ul>
+  <p>Are you a...</p>
+    <div class="row">
+      <div class="col-md-1">
+        <strong>
+          Client?
+        </strong>
+      </div>
+      <div class="col-md-8">
+        <p>
+          <strong>
+            Clients have documents they need translated, or they have recording they need transcribed
+            and/or translated.
+          </strong>
+        </p>
+        With APP_NAME, you can...
+        <ul>
+          <li>
+            quickly find available translators or agencies with the particular qualifications you need
+          </li>
+          <li>
+            make them an offer with the click of a button
+          </li>
+          <li>
+            receive quick quotes for cost and turnaround time and easily compare quotes
+          </li>
+          <li>
+            view each project as it's being worked on
+          </li>
+          <li>
+            store all completed projects for your later reference
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="role-description">
-      <p>
-        <strong>Vendors find clients and work on projects.</strong>
-      </p>
-
-      With APP_NAME, you can...
-      <ul>
-        <li>
-          quickly find clients and projects that suit your needs
-        </li>
-        <li>
-          see the profiles of the companies you're working for
-        </li>
-        <li>
-          work with other vendors on the same project in real time (pending)
-        </li>
-        <li>
-          receive online payment (pending)
-        </li>
-      </ul>
+    <div class="row">
+      <div class="col-md-1">
+        <strong>
+          Translator?<br>
+          Transcriber?<br>
+          Graphic Designer?<br>
+        </strong>
+      </div>
+      <div class="col-md-8">
+        <p>
+          <strong>Vendors find clients and work on projects.</strong>
+        </p>
+        With APP_NAME, you can...
+        <ul>
+          <li>
+            quickly find clients and projects that suit your needs
+          </li>
+          <li>
+            see the profiles of the companies you're working for
+          </li>
+          <li>
+            work with other vendors on the same project in real time (pending)
+          </li>
+          <li>
+            receive online payment (pending)
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
-</div>
-

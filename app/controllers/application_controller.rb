@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  helper_method :current_user
+  helper_method :current_user, :authorize
 
   def authorize
     redirect_to login_path, alert: "Please log in!" if current_user.nil?
