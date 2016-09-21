@@ -2,7 +2,7 @@
 <%= @project.name %>
 
 
-<%= link_to "See Current Bids", project_bid_path(@project, @project.bids) %>
+<%= link_to "See Current Bids", project_bid_path(@project, @bids) %>
 &nbsp;&nbsp;|&nbsp;&nbsp;
 <% if current_user.is_translator || current_user.is_transcriber || current_user.is_graphic_designer %>
   <%= link_to "Make Bid", new_project_bid_path(@project) %>
