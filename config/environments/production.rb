@@ -15,7 +15,9 @@ Rails.application.configure do
       :path => '/:class/:attachment/:id_partition/:style/:filename',
     }
 
-    config.serve_static_files = true
+    # config.serve_static_files = true
+    # replaced above with:
+    config.public_file_server.enabled = true
     config.assets.compile = true
 
   # Code is not reloaded between requests.
