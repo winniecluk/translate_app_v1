@@ -2,7 +2,13 @@
 <%= @project.name %>
 
 
+<%= link_to "See Current Bids", project_bid_path(@project, @project.bids) %>
 &nbsp;&nbsp;|&nbsp;&nbsp;
-<%= link_to "Edit Project", edit_project_path %>
-&nbsp;&nbsp;|&nbsp;&nbsp;
-<%= link_to "Delete Project", project_path, method: :delete, data: { confirm: "Are you sure?"} %>
+<% if current_user.is_translator || current_user.is_transcriber || current_user.is_graphic_designer %>
+  <%= link_to "Make Bid", new_project_bid_path(@project) %>
+<% end %>
+<% if current_user.is_client && current_user.id == session[:id] %>
+  <%= link_to "Edit Project", edit_project_path %>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <%= link_to "Delete Project", project_path, method: :delete, data: { confirm: "Are you sure?"} %>
+<% end %>

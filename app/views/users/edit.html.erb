@@ -62,6 +62,14 @@
   </div>
   <div class="row">
     <div class="col-xs-2 field">
+      <%= f.label :time_zone %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= time_zone_select(:user, :time_zone, ActiveSupport::TimeZone.us_zones, default: "Pacific Time (US & Canada)") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
       <%= f.label :bio %>
     </div>
     <div class="col-xs-6 field">

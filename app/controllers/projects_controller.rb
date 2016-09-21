@@ -48,20 +48,21 @@ private
 
   def project_params
     params.require(:project).permit(
-      :name,
-      :kind,
-      :budget,
-      :delivery_date,
-      :word_count,
-      :special_request,
-      :sample_text,
-      :need_translator,
-      :need_transcriber,
-      :need_graphic_designer,
       :assigned,
+      :budget,
       :completed,
+      :delivery_date,
+      :kind,
       :language_1,
-      :language_2
+      :language_2,
+      :minutes_in_file,
+      :name,
+      :need_graphic_designer,
+      :need_transcriber,
+      :need_translator,
+      :sample_text,
+      :special_request,
+      :word_count,
       )
   end
 end

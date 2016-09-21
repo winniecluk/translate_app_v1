@@ -43,7 +43,7 @@
       <%= f.label :proposed_budget %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.number_field :budget %>
+      <%= f.number_field :budget, :class => 'text_field', :step => 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -59,7 +59,7 @@
       <%= f.label :word_count %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.number_field :word_count %>
+      <%= f.number_field :word_count, :class => 'text_field', :step => 0.01 %>
     </div>
   </div>
   <div class="row">

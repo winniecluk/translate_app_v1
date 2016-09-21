@@ -5,6 +5,6 @@ class Project < ApplicationRecord
   # validates :word_count, presence: true
   # validates :sample_text, presence:true
 
-  has_many :bids
+  has_many :bids, dependent: :destroy
 
 end

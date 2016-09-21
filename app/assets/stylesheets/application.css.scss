@@ -15,9 +15,11 @@
  *= require_self
  */
 
-jumbotron {
-  background-color: #77ecff
-}
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.jumbotron {
+  background-color: #77ecff;
+  color: white
+}

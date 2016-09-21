@@ -1,14 +1,25 @@
-<h1>Edit Project</h1>
+
+<div class="container">
+<h1>Create New Project</h1>
+
 <p class="notice"><%= notice %></p>
 
 <%= form_for @project do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :name %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.select :kind, ['Legal', 'Business', 'Medical', 'Technical', 'Personal', 'General']%>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :type %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.select :kind, ['Legal', 'Business', 'Medical', 'Technical', 'Personal', 'General']%>
+    </div>
   </div>
   <div class="row">
     <div class="col-xs-2 field">
@@ -21,40 +32,79 @@
         'Portuguese (Brazil)', 'Portuguese (European)', 'Punjabi', 'Russian', 'Spanish', 'Swedish', 'Tagalog', 'Thai', 'Turkish', 'Ukrainian',
         'Urdu', 'Vietnamese'] %> to
       <%= f.select :language_2, ['Arabic', 'Armenian, Western', 'Armenian, Eastern', 'Bengali', 'Bulgarian', 'Burmese', 'Cebuano',
-        'Chinese, Simplified', 'Chinese, Traditional', 'Croatian', 'Czech', 'Danish', 'Dari', 'Dutch', 'English', 'Farsi', 'Finnish',
+        'Chinese, Simplified', 'Chinese, Traditional', 'Croatian', 'Czech', 'Danish', 'Dari', 'Dutch', 'Farsi', 'Finnish',
         'French (Canadian)', 'French (Belgian)', 'French', 'German', 'Greek', 'Hebrew', 'Hindi', 'Hungarian', 'Hmong', 'Indonesian',
-        'Italian', 'Japanese', 'Khmer', 'Korean', 'Norwegian', 'Polish', 'Portuguese (Brazil)', 'Portuguese (European)', 'Punjabi',
-        'Russian', 'Spanish', 'Swedish', 'Tagalog', 'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Vietnamese'] %>
+        'Italian', 'Japanese', 'Khmer', 'Korean', 'Norwegian', 'Polish', 'Portuguese (Brazil)', 'Portuguese (European)',
+        'Punjabi', 'Russian', 'Spanish', 'Swedish', 'Tagalog', 'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Vietnamese'] %>
     </div>
   </div>
-  <div class="field">
-    <%= f.label :proposed_budget %>
-    <%= f.number_field :budget %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :proposed_budget %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.number_field :budget, :class => 'text_field', :step => 0.01 %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :proposed_delivery_date %>
-    <%= f.date_select :delivery_date, :order => [:month, :day, :year] %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :proposed_delivery_date %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.date_select :delivery_date, :order => [:month, :day, :year] %>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-xs-3 field">
+      <%= f.label "Need Translator?" %>
+      <%= f.check_box :need_translator %>
+    </div>
+    <div class="col-xs-3 field">
+      <%= f.label "Need Transcriber?" %>
+      <%= f.check_box :need_transcriber %>
+    </div>
+    <div class="col-xs-3 field">
+      <%= f.label "Need Graphic Designer?" %>
+      <%= f.check_box :need_graphic_designer %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :word_count %>
-    <%= f.number_field :word_count %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :word_count %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.number_field :word_count, :class => 'text_field', :step => 0.01 %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :special_request %>
-    <%= f.text_field :special_request %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :minutes_in_file %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.number_field :minutes_in_file, :class => 'text_field', :step => 0.01 %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :sample_text %>
-    <%= f.text_field :sample_text %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :special_request %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.text_field :special_request %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :assigned? %>
-    <%= f.check_box :assigned %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :sample_text %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.text_field :sample_text %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :completed? %>
-    <%= f.check_box :completed %>
-  </div>
+  <div class="row">
+    <div class="col-xs-3 field">
+
+    </div>
+    <d
   <div class="actions"><%= f.submit %></div>
 <% end %>
+</div>

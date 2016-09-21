@@ -1,2 +1,0 @@
-class GraphicDesigner < ApplicationRecord
-end
