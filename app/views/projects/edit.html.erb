@@ -1,6 +1,6 @@
 
 <div class="container">
-<h1>Create New Project</h1>
+<h3>Edit details for <%= @project.name %></h3>
 
 <p class="notice"><%= notice %></p>
 
@@ -18,7 +18,7 @@
       <%= f.label :type %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.select :kind, ['Legal', 'Business', 'Medical', 'Technical', 'Personal', 'General']%>
+      <%= f.select :kind, ['Legal', 'Business', 'Medical', 'Technical', 'Educational', 'Personal', 'General']%>
     </div>
   </div>
   <div class="row">
@@ -100,11 +100,6 @@
       <%= f.text_field :sample_text %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-3 field">
-
-    </div>
-    <d
-  <div class="actions"><%= f.submit %></div>
+    <div class="actions"><%= f.submit %></div>
 <% end %>
 </div>

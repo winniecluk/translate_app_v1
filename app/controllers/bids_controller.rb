@@ -1,7 +1,7 @@
 class BidsController < ApplicationController
 
   def show
-
+    @bid = Bid.find(params[:id])
   end
 
   def new
@@ -13,15 +13,46 @@ class BidsController < ApplicationController
     @bid = Bid.new(bid_params)
     @bid.project_id = params[:project_id]
     @bid.user_id = current_user.id
+    @bid.f_name = current_user.f_name
+    @bid.l_name = current_user.l_name
     if @bid.save
       redirect_to projects_path
-      notice = "Sent bid to client!"
+      flash[:notice] = "Sent bid to client!"
     else
       render :new
-      alert = "Incomplete fields."
+      flash[:alert] = "Incomplete fields."
     end
   end
 
+  def edit
+    @bid = Bid.find(params[:id])
+    @project = Project.find(params[:project_id])
+  end
+
+  def update
+    @bid = Bid.find(params[:id])
+    if @bid.update_attributes(bid_params)
+
+      redirect_to project_path(@bid.project)
+    else
+      render :edit
+    end
+  end
+
+  def complete
+    @bid = Bid.find(params[:id])
+    @project = @bid.project
+    @bid.accepted = true
+    @project.accepted_bid_id = @bid.id
+    @project.assigned = true
+    @project.vendor_id = @bid.user_id
+    if @bid.save(validate: false) && @bid.project.save(validate: false)
+      flash[:notice] = "Bid accepted!"
+      redirect_to accounts_path
+    else
+      redirect_to project_path(@project)
+    end
+  end
 
 private
 

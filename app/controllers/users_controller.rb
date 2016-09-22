@@ -58,6 +58,8 @@ private
       :is_translator,
       :judicial_court,
       :l_name,
+      :language_1,
+      :language_2,
       :minimum_rate,
       :notary_fee,
       :password,

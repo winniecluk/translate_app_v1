@@ -37,14 +37,14 @@ carrie_zhao = User.create(
   )
 
 jing_zheng = User.create(
-  {is_translator: true, f_name: "Jing", l_name: "Zheng", email: "carrie@ga.co",
+  {is_translator: true, f_name: "Jing", l_name: "Zheng", email: "jing@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Arcadia", country: "USA", bio: "Hello!",
     web_link: "www.google.com", rate_per_word: 0.13, ata_certified: true, available: true}
   )
 
 sochin_ancheta = User.create(
-  {is_translator: true, f_name: "Sochin", l_name: "Ancheta", email: "carrie@ga.co",
+  {is_translator: true, f_name: "Sochin", l_name: "Ancheta", email: "sochin@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Arcadia", country: "USA", bio: "Hello!",
     web_link: "www.google.com", rate_per_word: 0.12, ata_certified: false, available: false}

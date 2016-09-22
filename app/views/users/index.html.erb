@@ -14,6 +14,9 @@
       Time Zone
     </th>
     <th>
+      Language Combination
+    </th>
+    <th>
       Rate Per Word
     </th>
     <th>
@@ -47,24 +50,8 @@
   <% if @users.select { |user|
     user.is_translator? }.count == 0 %>
     <tr>
-      <td>
+      <td colspan=13>
         <%= "None currently." %>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
       </td>
     </tr>
   <% else %>
@@ -78,7 +65,13 @@
           <%= user.country %>
         </td>
         <td>
+          <%= user.time_zone %>
         </td>
+        <td>
+          <% if user.language_1.nil? || user.language_2.nil? %>
+            <% else %>
+              <%= user.language_1 %> to <%= user.language_2 %>
+          <% end %>
         <td>
           <%= user.rate_per_word %>
         </td>
@@ -145,6 +138,9 @@
         Time Zone
       </th>
       <th>
+        Language Combination
+      </th>
+      <th>
         Rate Per Minute
       </th>
       <th>
@@ -166,24 +162,8 @@
     <% if @users.select { |user|
       user.is_transcriber? }.count == 0 %>
       <tr>
-        <td>
+        <td colspan=10>
           <%= "None currently." %>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
         </td>
       </tr>
     <% else %>
@@ -197,6 +177,13 @@
             <%= user.country %>
           </td>
           <td>
+            <%= user.time_zone %>
+          </td>
+          <td>
+            <% if user.language_1.nil? || user.language_2.nil? %>
+              <% else %>
+                <%= user.language_1 %> to <%= user.language_2 %>
+            <% end %>
           </td>
           <td>
             <%= user.rate_per_minute %>

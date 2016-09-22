@@ -39,20 +39,36 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def completeclient
+    @project = Project.find(params[:id])
+    @project.completed_client = true
+    if @project.save(validate: false)
+      redirect_to accounts_path
+      flash[:notice] = "You've marked this completed!"
+    else
+      render :show
+      flash[:notice] = "Unable to mark completed."
+    end
+  end
+
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to projects_path
+    redirect_to accounts_path
   end
 
 private
 
   def project_params
     params.require(:project).permit(
+      :accepted_bid_id,
       :assigned,
       :budget,
       :completed,
+      :completed_client,
+      :completed_vendor,
       :delivery_date,
+      :document,
       :kind,
       :language_1,
       :language_2,
@@ -64,6 +80,7 @@ private
       :sample_text,
       :special_request,
       :word_count,
+      :vendor_id
       )
   end
 end

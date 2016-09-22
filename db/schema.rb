@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921004545) do
+ActiveRecord::Schema.define(version: 20160922172246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20160921004545) do
     t.date     "delivery_date"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "accepted"
+    t.string   "f_name"
+    t.string   "l_name"
     t.index ["project_id"], name: "index_bids_on_project_id", using: :btree
     t.index ["user_id"], name: "index_bids_on_user_id", using: :btree
   end
@@ -66,6 +69,14 @@ ActiveRecord::Schema.define(version: 20160921004545) do
     t.string   "language_1"
     t.string   "language_2"
     t.float    "minutes_in_file"
+    t.integer  "accepted_bid_id"
+    t.integer  "vendor_id"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.boolean  "completed_client"
+    t.boolean  "completed_vendor"
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 

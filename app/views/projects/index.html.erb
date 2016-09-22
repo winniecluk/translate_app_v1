@@ -29,6 +29,7 @@
     </th>
   </tr>
     <% @projects.each do |project| %>
+      <% if !project.accepted_bid_id %>
     <tr>
       <td>
         <%= project.user.f_name %> <%= project.user.l_name %>
@@ -55,5 +56,6 @@
         <%= link_to "See Project", project_path(project) %>
       </td>
     </tr>
+    <% end %>
     <% end %>
 </table>

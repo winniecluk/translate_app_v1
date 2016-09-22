@@ -1,14 +1,94 @@
-<p>This is its project page.</p>
-<%= @project.name %>
+<h2><%= @project.name %></h2>
+
+<!-- This is for Active Bids !-->
+<%= link_to "Download", @project.document.url(:original, false), target: "_blank" %>
+
+<% if !@project.accepted_bid_id %>
+  <h3>Current Bids</h3>
+  <div class="container">
+    <table class="table table-striped table-responsive">
+    <tr>
+      <th>
+        Vendor Name
+      </th>
+      <th>
+        Proposed Delivery Date
+      </th>
+      <th>
+        Proposed budget
+      </th>
+      <th>
+      </th>
+    </tr>
+  <% @bids.each do |bid| %>
+  <tr>
+    <td>
+      <%= bid.user.f_name %> <%= bid.user.l_name %>
+    </td>
+    <td>
+      <%= bid.delivery_date %>
+    </td>
+    <td>
+      <%= bid.budget %>
+    </td>
+    <td>
+      <% if bid.user_id == current_user.id %>
+        <%= link_to "Manage Your Bid", edit_project_bid_path(@project, bid) %>
+      <% end %>
+      <% if @project.user_id == current_user.id %>
+        <%= button_to "Accept", "/bids/#{bid.id}/complete", method: :patch %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+  <% if @bids.empty? %>
+    <tr>
+      <td colspan=8>
+        None currently
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
 
 
-<%= link_to "See Current Bids", project_bid_path(@project, @bids) %>
-&nbsp;&nbsp;|&nbsp;&nbsp;
 <% if current_user.is_translator || current_user.is_transcriber || current_user.is_graphic_designer %>
   <%= link_to "Make Bid", new_project_bid_path(@project) %>
 <% end %>
-<% if current_user.is_client && current_user.id == session[:id] %>
+<% if @project.user_id == current_user.id %>
   <%= link_to "Edit Project", edit_project_path %>
   &nbsp;&nbsp;|&nbsp;&nbsp;
   <%= link_to "Delete Project", project_path, method: :delete, data: { confirm: "Are you sure?"} %>
+<% end %>
+
+<% end %>
+<!-- This is the end of active bids -->
+
+<!-- This is the beginning of the client's view -->
+ <!-- This is the client's view for Projects In Progress/Completed -->
+
+<% if @project.accepted_bid_id && current_user.id == @project.user_id %>
+
+<p>The source file</p>
+
+<p>File:</p>
+  <%= link_to "Download", @project.document.url(:original, false) %>
+
+  <p>See Source</p>
+
+  <p>See Translator's Work Here</p>
+
+<!-- This is the client's view for Projects if not completed yet !-->
+<% if @project.accepted_bid_id && !@project.completed_client %>
+  <%= button_to "Mark Completed", "/projects/#{@project.id}/completeclient", method: :patch %>
+<% end %>
+
+<% end %>
+<!-- This is the end of the client's view !-->
+
+<!-- This is the beginning of the translator's view !-->
+
+<% if @project.accepted_bid_id && current_user.id == @project.vendor_id %>
+  <p>See source file</p>
+  <p>Upload your translation here</p>
 <% end %>

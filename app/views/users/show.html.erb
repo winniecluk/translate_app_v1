@@ -1,38 +1,44 @@
-<p><%= notice %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
+<!-- This is the beginning of the client view -->
 <div class="container">
   <% if current_user.is_client %>
-  <p><%= link_to "Create New Project", new_project_path %></p>
+    <p>
+      <%= link_to "Create New Project", new_project_path %>
+    </p>
 </div>
 
 <%= image_tag current_user.avatar.url(:thumb) %>
 
-<p>Unassigned Projects</p>
+<!-- This is the client's Unassigned Projects table !-->
+<h3>Unassigned Projects</h3>
 <div class="container">
-<table class="table table-striped table-responsive">
-  <tr>
-    <th>
-      Name
-    </th>
-    <th>
-      Type
-    </th>
-    <th>
-      Proposed Budget
-    </th>
-    <th>
-      Delivery Date
-    </th>
-    <th>
-      Word Count
-    </th>
-    <th>
-      Language Combination
-    </th>
-    <th>
-    </th>
+  <table class="table table-striped table-responsive">
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Proposed Budget
+      </th>
+      <th>
+        Delivery Date
+      </th>
+      <th>
+        Word Count
+      </th>
+      <th>
+        Language Combination
+      </th>
+      <th>
+      </th>
+    </tr>
 <% current_user.projects.each do |project| %>
-  <% if !project.assigned && !project.completed %>
+  <% if !project.accepted_bid_id %>
     <tr>
       <td>
         <%= project.name %>
@@ -53,27 +59,166 @@
         <%= project.language_1 %> to <%= project.language_2 %>
       </td>
       <td>
-        <%= link_to "Edit Details", project_path(project) %>
+        <%= link_to "See Current Bids", project_path(project) %>
       </td>
     </tr>
   <% end %>
 <% end %>
-<% if current_user.projects.select { |project|
-  !project.assigned && !project.completed }.count == 0 %>
-  <tr>
-    <td colspan=8>
-      None currently
-    </td>
-  </tr>
-<% end %>
-</table>
+  <% if current_user.projects.select { |project|
+    !project.accepted_bid_id }.count == 0 %>
+    <tr>
+      <td colspan=8>
+        None currently
+      </td>
+    </tr>
+  <% end %>
+  </table>
 </div>
 
-<% end %>
+<!-- This is the client's Projects In Progress Table -->
+<div class="container">
+  <h3>Projects In Progress</h3>
+  <table class="table table-striped table-responsive">
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Budget
+      </th>
+      <th>
+        Delivery Date
+      </th>
+      <th>
+        Word Count
+      </th>
+      <th>
+        Language Combination
+      </th>
+      <th>
+        Vendors Assigned
+      </th>
+      <th>
+      </th>
+    </tr>
+    <% current_user.projects.each do |project| %>
+      <% if project.accepted_bid_id && !project.completed_client %>
+        <tr>
+          <td>
+            <%= project.name %>
+          </td>
+          <td>
+            <%= project.kind %>
+          </td>
+          <td>
+            <%= project.accepted_bid.budget %>
+          </td>
+          <td>
+            <%= project.accepted_bid.delivery_date %>
+          </td>
+          <td>
+            <%= project.word_count %>
+          </td>
+          <td>
+            <%= project.language_1 %> to <%= project.language_2 %>
+          </td>
+          <td>
+            <%= project.accepted_bid.f_name %> <%= project.accepted_bid.l_name %>
+          </td>
+          <td>
+            <%= link_to "Edit Details", project_path(project) %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% if current_user.projects.select { |project|
+      project.accepted_bid_id && !project.completed_client && !project.completed_vendor }.count == 0 %>
+      <tr>
+        <td colspan=8>
+          None currently
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
 
-<% if current_user.is_translator || user.is_transcriber || user.is_graphic_designer %>
-  <p><%= link_to "Jobs Board", projects_path %></p>
-  <div class="container">
+<!-- This is the client's Completed Projects table -->
+<div class="container">
+  <h3>Completed Projects</h3>
+    <table class="table table-striped table-responsive">
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Type
+        </th>
+        <th>
+          Budget
+        </th>
+        <th>
+          Date Completed
+        </th>
+        <th>
+          Word Count
+        </th>
+        <th>
+          Vendors
+        </th>
+        <th>
+        </th>
+      </tr>
+<% current_user.projects.each do |project| %>
+  <% if project.completed_client %>
+      <tr>
+        <td>
+          <%= project.name %>
+        </td>
+        <td>
+          <%= project.kind %>
+        </td>
+        <td>
+          <%= project.accepted_bid.budget %>
+        </td>
+        <td>
+          <%= project.accepted_bid.delivery_date %>
+        </td>
+        <td>
+          <%= project.word_count %>
+        </td>
+        <td>
+          <%= project.accepted_bid.f_name %> <%= project.accepted_bid.l_name %>
+        </td>
+        <td>
+          <%= link_to "Edit Details", project_path(project) %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+      <% if current_user.projects.select { |project|
+        project.completed_client }.count == 0 %>
+        <tr>
+          <td colspan=7>
+            None currently
+          </td>
+        </tr>
+      <% end %>
+  </table>
+</div>
+<% end %>
+<!-- This is the end tag for the client view above !-->
+
+<!-- This is the beginning of the translator/transcriber/graphic designer view !-->
+<% if current_user.is_translator || current_user.is_transcriber || current_user.is_graphic_designer %>
+  <p>
+    <%= link_to "Jobs Board", projects_path %>
+  </p>
+
+<!--   This is the vendor's Active Bids table! -->
+<div class="container">
     <h3>Active Bids</h3>
     <table class="table table-striped table-responsive">
       <tr>
@@ -102,34 +247,37 @@
         </th>
       </tr>
       <% current_user.bids.each do |bid| %>
-        <tr>
-          <td>
-            <%= bid.project.name %>
-          </td>
-          <td>
-            <%= bid.project.user.f_name %> <%= bid.project.user.l_name %>
-          </td>
-          <td>
-            <%= bid.project.kind %>
-          </td>
-          <td>
-            <%= bid.budget %>
-          </td>
-          <td>
-            <%= bid.delivery_date %>
-          </td>
-          <td>
-            <%= bid.project.word_count %>
-          </td>
-          <td>
-            <%= bid.project.language_1 %> to <%= bid.project.language_2 %>
-          </td>
-          <td>
-            <%= link_to "See Project", project_path(bid.project) %>
-          </td>
-        </tr>
+        <% if !bid.project.accepted_bid_id %>
+          <tr>
+            <td>
+              <%= bid.project.name %>
+            </td>
+            <td>
+              <%= bid.project.user.f_name %> <%= bid.project.user.l_name %>
+            </td>
+            <td>
+              <%= bid.project.kind %>
+            </td>
+            <td>
+              <%= bid.budget %>
+            </td>
+            <td>
+              <%= bid.delivery_date %>
+            </td>
+            <td>
+              <%= bid.project.word_count %>
+            </td>
+            <td>
+              <%= bid.project.language_1 %> to <%= bid.project.language_2 %>
+            </td>
+            <td>
+              <%= link_to "See Project", project_path(bid.project) %>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
-      <% if current_user.bids.empty? %>
+      <% if current_user.bids.select { |bid|
+        !bid.project.accepted_bid_id }.count == 0 %>
         <tr>
           <td colspan=8>
             None currently
@@ -139,13 +287,9 @@
       </table>
       </div>
 
-    </table>
-  </div>
-<% end %>
-
-
+<!-- This is the vendor's Projects In Progress table! -->
 <div class="container">
-<h3>Projects In Progress</h3>
+  <h3>Projects In Progress</h3>
   <table class="table table-striped table-responsive">
     <tr>
       <th>
@@ -172,37 +316,38 @@
       <th>
       </th>
     </tr>
-    <% current_user.projects.each do |project| %>
-      <% if project.assigned && !project.completed %>
+    <% current_user.bids.each do |bid| %>
+      <% if bid.accepted && !bid.project.completed_client %>
         <tr>
           <td>
-            <%= project.name %>
+            <%= bid.project.name %>
           </td>
           <td>
-            <%= project.kind %>
+            <%= bid.project.kind %>
           </td>
           <td>
-            <%= project.budget %>
+            <%= bid.budget %>
           </td>
           <td>
-            <%= project.delivery_date %>
+            <%= bid.delivery_date %>
           </td>
           <td>
-            <%= project.word_count %>
+            <%= bid.project.word_count %>
           </td>
           <td>
-            <%= project.language_1 %> to <%= project.language_2 %>
+            <%= bid.project.language_1 %> to <%= bid.project.language_2 %>
           </td>
           <td>
+            Me!
           </td>
           <td>
-            <%= link_to "Edit Details", project_path(project) %>
+            <%= link_to "Edit Details", project_path(bid.project) %>
           </td>
         </tr>
       <% end %>
     <% end %>
-    <% if current_user.projects.select { |project|
-      project.assigned && !project.completed }.count == 0 %>
+    <% if current_user.bids.select { |bid|
+      bid.accepted && !bid.project.completed_client }.count == 0 %>
       <tr>
         <td colspan=8>
           None currently
@@ -212,63 +357,66 @@
   </table>
 </div>
 
-<div class="container">
-<h3>Completed Projects</h3>
-  <table class="table table-striped table-responsive">
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Budget
-      </th>
-      <th>
-        Date Completed
-      </th>
-      <th>
-        Word Count
-      </th>
-      <th>
-        Vendors
-      </th>
-      <th>
-      </th>
-    </tr>
-    <% current_user.projects.each do |project| %>
-      <% if project.assigned && project.completed %>
-          <tr>
-            <td>
-              <%= project.name %>
-            </td>
-            <td>
-              <%= project.kind %>
-            </td>
-            <td>
-              <%= project.budget %>
-            </td>
-            <td>
-              <%= project.delivery_date %>
-            </td>
-            <td>
-              <%= project.word_count %>
-            </td>
-            <td>
-            </td>
-            <td>
-              <%= link_to "Edit Details", project_path(project) %>
-            </td>
-          </tr>
-        <% end %>
-      <% end %>
-      <% if current_user.projects.select { |project|
-        project.assigned && project.completed }.count == 0 %>        <tr>
-          <td colspan=7>
-            None currently
-          </td>
-        </tr>
-      <% end %>
-  </table>
-</div>
+  <div class="container">
+  <h3>Completed Projects</h3>
+    <table class="table table-striped table-responsive">
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Type
+        </th>
+        <th>
+          Budget
+        </th>
+        <th>
+          Date Completed
+        </th>
+        <th>
+          Word Count
+        </th>
+        <th>
+          Vendors
+        </th>
+        <th>
+        </th>
+      </tr>
+  <% current_user.bids.each do |bid| %>
+    <% if bid.project.completed_client && if bid.id == bid.project.accepted_bid_id %>
+      <tr>
+        <td>
+          <%= bid.project.name %>
+        </td>
+        <td>
+          <%= bid.project.kind %>
+        </td>
+        <td>
+          <%= bid.project.budget %>
+        </td>
+        <td>
+          <%= bid.project.delivery_date %>
+        </td>
+        <td>
+          <%= bid.project.word_count %>
+        </td>
+        <td>
+        </td>
+        <td>
+          <%= link_to "Edit Details", project_path(bid.project) %>
+        </td>
+      </tr>
+    <% end %>
+    <% end %>
+  <% end %>
+    <% if current_user.bids.select { |bid|
+      bid.project.completed_client }.count == 0 %>
+      <tr>
+        <td colspan=7>
+          None currently
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+<% end %>

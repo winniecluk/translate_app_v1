@@ -9,4 +9,12 @@ class User < ApplicationRecord
 
   validates :password, length: {minimum: 6, maximum: 20}
   validates :email, presence: true, uniqueness: true
+
+  # def unassigned_project?
+  #   project.accepted_bid_id.nil?
+  # end
+
+  # def no_projects?
+  #   projects.select { |project| }
+  # end
 end

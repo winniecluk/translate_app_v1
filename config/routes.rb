@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  patch "/bids/:id/complete", to: "bids#complete"
+  patch "/projects/:id/completeclient", to: "projects#completeclient"
+
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
   get "/accounts", to: "users#show"

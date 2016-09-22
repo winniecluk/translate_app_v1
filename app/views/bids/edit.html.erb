@@ -1,0 +1,69 @@
+
+<% if @bid.user_id == current_user.id %>
+<h2>Edit your bid on <%= @project.name %></h2>
+
+<p class="notice"><%= notice %></p>
+
+<div class="container">
+  <h4>
+    <%= @project.user.f_name %> <%= @project.user.l_name %>'s Proposal</h4>
+  <div class="row">
+    <div class="col-xs-2 field">
+      Language Combination
+    </div>
+    <div class="col-xs-6 field">
+      <%= @project.language_1 %> to <%= @project.language_2 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      Word Count
+    </div>
+    <div class="col-xs-6 field">
+      <%= @project.word_count %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      Proposed budget
+    </div>
+    <div class="col-xs-6 field">
+      <%= @project.budget %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      Proposed delivery date
+    </div>
+    <div class="col-xs-6 field">
+      <%= @project.delivery_date %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h4>Your Bid</h4>
+<%= form_for @bid, url: project_bid_path(@project, @bid) do |f| %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :proposed_budget %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.number_field :budget, :class => 'text_field', :step => 0.01 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :proposed_delivery_date %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.date_select :delivery_date, :order => [:month, :day, :year] %>
+    </div>
+  </div>
+<div class="actions"><%= f.submit %></div>
+</div>
+
+
+<% end %>
+
+<% end %>

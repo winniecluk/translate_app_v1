@@ -18,7 +18,7 @@
       <%= f.label :type %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.select :kind, ['Legal', 'Business', 'Medical', 'Technical', 'Personal', 'General']%>
+      <%= f.select :kind, ['Legal', 'Business', 'Medical', 'Technical', 'Educational', 'Personal', 'General']%>
     </div>
   </div>
   <div class="row">
@@ -32,7 +32,7 @@
         'Portuguese (Brazil)', 'Portuguese (European)', 'Punjabi', 'Russian', 'Spanish', 'Swedish', 'Tagalog', 'Thai', 'Turkish', 'Ukrainian',
         'Urdu', 'Vietnamese'] %> to
       <%= f.select :language_2, ['Arabic', 'Armenian, Western', 'Armenian, Eastern', 'Bengali', 'Bulgarian', 'Burmese', 'Cebuano',
-        'Chinese, Simplified', 'Chinese, Traditional', 'Croatian', 'Czech', 'Danish', 'Dari', 'Dutch', 'Farsi', 'Finnish',
+        'Chinese, Simplified', 'Chinese, Traditional', 'Croatian', 'Czech', 'Danish', 'Dari', 'Dutch', 'English', 'Farsi', 'Finnish',
         'French (Canadian)', 'French (Belgian)', 'French', 'German', 'Greek', 'Hebrew', 'Hindi', 'Hungarian', 'Hmong', 'Indonesian',
         'Italian', 'Japanese', 'Khmer', 'Korean', 'Norwegian', 'Polish', 'Portuguese (Brazil)', 'Portuguese (European)',
         'Punjabi', 'Russian', 'Spanish', 'Swedish', 'Tagalog', 'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Vietnamese'] %>
@@ -55,13 +55,35 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-2 field">
-      <%= f.label :word_count %>
+      <div class="col-xs-3 field">
+        <%= f.label "Need Translator?" %>
+        <%= f.check_box :need_translator %>
+      </div>
+      <div class="col-xs-3 field">
+        <%= f.label "Need Transcriber?" %>
+        <%= f.check_box :need_transcriber %>
+      </div>
+      <div class="col-xs-4 field">
+        <%= f.label "Need Graphic Designer?" %>
+        <%= f.check_box :need_graphic_designer %>
+      </div>
     </div>
-    <div class="col-xs-6 field">
-      <%= f.number_field :word_count, :class => 'text_field', :step => 0.01 %>
+    <div class="row">
+      <div class="col-xs-2 field">
+        <%= f.label :word_count %>
+      </div>
+      <div class="col-xs-6 field">
+        <%= f.number_field :word_count, :class => 'text_field', :step => 0.01 %>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-xs-2 field">
+        <%= f.label :minutes_in_file %>
+      </div>
+      <div class="col-xs-6 field">
+        <%= f.number_field :minutes_in_file, :class => 'text_field', :step => 0.01 %>
+      </div>
+    </div>
   <div class="row">
     <div class="col-xs-2 field">
       <%= f.label :special_request %>
@@ -76,6 +98,14 @@
     </div>
     <div class="col-xs-6 field">
       <%= f.text_field :sample_text %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= f.label :document %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.file_field :document %>
     </div>
   </div>
   <div class="actions"><%= f.submit %></div>
