@@ -54,6 +54,13 @@ class BidsController < ApplicationController
     end
   end
 
+  def destroy
+    @bid = Bid.find(params[:id])
+    @project = @bid.project
+    @bid.destroy
+    redirect_to project_path(@project)
+  end
+
 private
 
   def bid_params

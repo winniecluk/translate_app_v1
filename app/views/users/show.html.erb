@@ -296,6 +296,9 @@
         Name
       </th>
       <th>
+        Client
+      </th>
+      <th>
         Type
       </th>
       <th>
@@ -311,9 +314,6 @@
         Language Combination
       </th>
       <th>
-        Vendors Assigned
-      </th>
-      <th>
       </th>
     </tr>
     <% current_user.bids.each do |bid| %>
@@ -321,6 +321,9 @@
         <tr>
           <td>
             <%= bid.project.name %>
+          </td>
+          <td>
+            <%= bid.project.user.f_name %> <%= bid.project.user.l_name %>
           </td>
           <td>
             <%= bid.project.kind %>
@@ -365,6 +368,9 @@
           Name
         </th>
         <th>
+          Client
+        </th>
+        <th>
           Type
         </th>
         <th>
@@ -376,17 +382,15 @@
         <th>
           Word Count
         </th>
-        <th>
-          Vendors
-        </th>
-        <th>
-        </th>
       </tr>
   <% current_user.bids.each do |bid| %>
     <% if bid.project.completed_client && if bid.id == bid.project.accepted_bid_id %>
       <tr>
         <td>
           <%= bid.project.name %>
+        </td>
+        <td>
+          <%= bid.project.user.f_name %> <%= bid.project.user.l_name %>
         </td>
         <td>
           <%= bid.project.kind %>
@@ -399,11 +403,6 @@
         </td>
         <td>
           <%= bid.project.word_count %>
-        </td>
-        <td>
-        </td>
-        <td>
-          <%= link_to "Edit Details", project_path(bid.project) %>
         </td>
       </tr>
     <% end %>

@@ -62,8 +62,6 @@
   </div>
 <div class="actions"><%= f.submit %></div>
 </div>
-
-
 <% end %>
-
+  <%= link_to "Delete", project_bid_path(@project, @bid), method: :delete, data: { confirm: "Are you sure?"} %>
 <% end %>
