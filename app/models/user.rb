@@ -11,19 +11,19 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   def ata_certified?
-    "yes" if judicial_court else "no"
+    "yes" if judicial_court else "no" end
   end
 
   def judicial_court?
-    "yes" if judicial_court else "no"
+    "yes" if judicial_court else "no" end
   end
 
   def trados?
-    "yes, " + trados_version if trados else "no"
+    "yes, " + trados_version if trados else "no" end
   end
 
   def available?
-    "yes" if available else "no"
+    "yes" if available else "no" end
   end
 
   # def unassigned_project?

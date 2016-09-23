@@ -15,7 +15,7 @@ clarissa_notmyreallastname = User.create(
     phone_number: "123-123-1234", city: "Los Angeles", country: "USA", bio: "I was born!",
     web_link: "www.clarissa.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.18,
     minimum_rate: 30, rush_rate_per_word: 0.16, rush_minimum: 50, notary_fee: 10, specialization: "legal",
-    ata_certified: true, available: true, use_trados: true, trados_version: "2015"}
+    ata_certified: true, available: true, trados: true, trados_version: "2015"}
     )
 
 sochin_imnothererightnow = User.create(
@@ -33,7 +33,7 @@ victoria_queentoo = User.create(
     phone_number: "123-123-1234", city: "Weho!", country: "USA", bio: "I was born too!",
     web_link: "www.victoria.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.12,
     minimum_rate: 60, rush_rate_per_word: 0.18, rush_minimum: 80, notary_fee: 20, specialization: "medical",
-    available: true, use_trados: true, trados_version: "2011"}
+    available: true, trados: true, trados_version: "2011"}
     )
 
 joseph_somethingreallyasian = User.create(
