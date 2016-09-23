@@ -2,7 +2,7 @@
 <div class="container">
 <h3>Edit details for <%= @project.name %></h3>
 
-<p class="notice"><%= notice %></p>
+<div class="alert alert-info" role="alert"><%= notice %></div>
 
 <%= form_for @project do |f| %>
   <div class="row">

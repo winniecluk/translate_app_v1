@@ -2,7 +2,7 @@
 <% if @bid.user_id == current_user.id %>
 <h2>Edit your bid on <%= @project.name %></h2>
 
-<p class="notice"><%= notice %></p>
+<div class="alert alert-info" role="alert"><%= notice %></div>
 
 <div class="container">
   <h4>
