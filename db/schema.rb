@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923002509) do
+ActiveRecord::Schema.define(version: 20160923035415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(version: 20160923002509) do
     t.datetime "avatar_updated_at"
     t.string   "language_1"
     t.string   "language_2"
+    t.text     "message"
   end
 
   add_foreign_key "bids", "projects"

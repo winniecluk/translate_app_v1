@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_attributes(user_params)
       redirect_to dashboard_path
-      flash[:notice] = "You've updated your profile!"
+      flash[:notice] = "Success!"
     else
       redirect_to accounts_edit_path
       flash[:notice] = "Incomplete fields."
@@ -64,6 +64,7 @@ private
       :l_name,
       :language_1,
       :language_2,
+      :message,
       :minimum_rate,
       :notary_fee,
       :password,
