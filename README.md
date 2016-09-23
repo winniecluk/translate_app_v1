@@ -1,4 +1,4 @@
-#FOLIO 
+![alt text](http://i.imgur.com/PppygVn.png)
 
 FOLIO is a web app meant to help people manage their digital and print projects, 
 more specifically in the translation field. The current version of this app provides a 
@@ -84,6 +84,7 @@ other than what he normally does.
 
 You gotta be able to Ruby to talk to Rails. Rails runs on Ruby. To help illustrate this, I drew a picture for you: 
 
+![alt text](http://i.imgur.com/V1kAHTF.png)
 
 Sure wish I'd known all this before I finished the project.
 
@@ -104,6 +105,6 @@ Need more expressive logic. Feel like a second-grader. Practice?
 
 Should have restricted to one type of vendor and put less information. Adding more attributes is useful information for people who work in the translation field, but not useful for developers who have nothing
 
-Didn't pseudocode. Wireframed and went straight to getting resources/CRUD up since I was anxious about getting this done on time. The first two went up without too much hassle but adding the third and getting it to relate the way I wanted them to was not funtimes. Maybe it would have been funtimes without a deadline.
+Didn't pseudocode. Wireframed and went straight to getting resources/CRUD up since I was anxious about getting this done on time. The first two went up without too much hassle but adding the third and getting it to relate the way I wanted them to was not funtimes. Maybe it would have been funtimes without a deadline. I felt like I was rushing to do something I didn't know how to do very well, and I wanted to luxuriate in learning. But I guess that's the nature of this thing.
 
 Next time: wireframe, pseudocode, and then **show pseudocode to instructor first** before proceeding. I got suggestions that would have made this project so much easier.
