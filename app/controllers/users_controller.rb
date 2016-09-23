@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Welcome to App_Name! You've successfully signed up.
+      flash[:notice] = "Welcome to FOLIO! You've successfully signed up.
         Please complete your profile below, and then you can get started."
       redirect_to accounts_edit_path
     else

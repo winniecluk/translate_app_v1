@@ -4,7 +4,7 @@
     <div class="col-sm-6">
       <div id="portrait">
         <% if @user.avatar_file_name %>
-          <%= image_tag current_user.avatar.url(:thumb) %>
+          <%= image_tag @user.avatar.url(:thumb) %>
         <% else %>
           <%= "No picture uploaded." %>
         <% end %>

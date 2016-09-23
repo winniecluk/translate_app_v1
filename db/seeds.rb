@@ -44,13 +44,32 @@ joseph_somethingreallyasian = User.create(
     minimum_rate: 45, rush_rate_per_word: 0.18, rush_minimum: 60, notary_fee: 10, specialization: "patents",
     ata_certified: true, judicial_court: true, available: true }
     )
+
 james_icangetawaywiththiscauseimasian = User.create(
-  {is_translator: true, f_name: "James", l_name: "Icantgetawaywiththiscauseimasian", email: "james@ga.co",
+  {is_translator: true, f_name: "James", l_name: "Icangetawaywiththiscauseimasian", email: "james@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Santa Clarita", country: "USA", bio: "I'm the first person to ever be born!",
     web_link: "www.james.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.16,
     minimum_rate: 40, rush_rate_per_word: 0.18, rush_minimum: 60, notary_fee: 15, specialization: "real estate",
     judicial_court: true, available: true }
+    )
+
+mondale_imalsoasian = User.create(
+  {is_translator: true, f_name: "Mondale", l_name: "Imalsoasian", email: "mondale@ga.co",
+    password: "abcd1234", password_confirmation: "abcd1234",
+    phone_number: "123-123-1234", city: "Hollywood", country: "USA", bio: "I was never born.",
+    web_link: "www.mondale.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.13,
+    minimum_rate: 20, rush_rate_per_word: 0.14, rush_minimum: 25, notary_fee: 10, specialization: "menus",
+    available: true }
+    )
+
+berry_theresnowayimasian = User.create(
+  {is_translator: true, f_name: "Berry", l_name: "Theresnowayimasian", email: "berry@ga.co",
+    password: "abcd1234", password_confirmation: "abcd1234",
+    phone_number: "123-123-1234", city: "Beaversdam", country: "Narnia", bio: "I was born in a dream.",
+    web_link: "www.berry.com", language_1: "Bulgarian", language_2: "English", rate_per_word: 0.20,
+    minimum_rate: 60, rush_rate_per_word: 0.25, rush_minimum: 70, notary_fee: 15, specialization: "everything in existence",
+    ata_certified: true, judicial_court: true, trados: true, available: true, trados_version: "2015" }
     )
 
 marcela_becerra= User.create(

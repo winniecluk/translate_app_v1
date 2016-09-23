@@ -1,5 +1,7 @@
-<div><%= notice %></div>
-<div><%= alert %></div>
+<div class="container">
+  <div><%= notice %></div>
+  <div class="custom-alert"><%= alert %></div>
+</div>
 
 <div class="container">
 <h2>Edit Your Profile</h2>
@@ -126,7 +128,7 @@
       <%= f.label :rate_per_word %>
     </div>
     <div class="col-xs-6 field">
-        <%= f.number_field :rate_per_word %>
+      <%= f.number_field :rate_per_word, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -142,7 +144,7 @@
       <%= f.label :rush_rate_per_word %>
     </div>
     <div class="col-xs-6 field">
-        <%= f.number_field :rush_rate_per_word %>
+      <%= f.number_field :rush_rate_per_word, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -162,7 +164,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-2 field">
+    <div class="col-xs-3 field">
       <%= f.label :specialization %>
     </div>
     <div class="col-xs-6 field">
@@ -202,7 +204,7 @@
       <%= f.label :rate_per_minute %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.number_field :rate_per_minute, :class => 'text_field', :step => 0.01 %>
+      <%= f.number_field :rate_per_minute, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -210,7 +212,7 @@
       <%= f.label :rate_per_work_hour %>
     </div>
     <div class="col-xs-6 field">
-    <%= f.number_field :rate_per_work_hour, :class => 'text_field', :step => 0.01 %>
+    <%= f.number_field :rate_per_work_hour, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -218,7 +220,7 @@
       <%= f.label :rush_rate_per_minute %>
     </div>
     <div class="col-xs-6 field">
-    <%= f.number_field :rush_rate_per_minute, :class => 'text_field', :step => 0.01 %>
+    <%= f.number_field :rush_rate_per_minute, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -226,7 +228,7 @@
       <%= f.label :minimum_rate %>
     </div>
     <div class="col-xs-6 field">
-    <%= f.number_field :minimum_rate, :class => 'text_field', :step => 0.01 %>
+    <%= f.number_field :minimum_rate, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -234,7 +236,7 @@
       <%= f.label :rush_minimum %>
     </div>
     <div class="col-xs-6 field">
-    <%= f.number_field :rush_minimum, :class => 'text_field', :step => 0.01 %>
+    <%= f.number_field :rush_minimum, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -250,7 +252,7 @@
       <%= f.label "Hourly Rate" %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.number_field :rate_per_work_hour, :class => 'text_field', :step => 0.01 %>
+      <%= f.number_field :rate_per_work_hour, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">

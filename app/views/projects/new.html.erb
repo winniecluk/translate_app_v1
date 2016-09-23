@@ -43,7 +43,7 @@
       <%= f.label :proposed_budget %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.number_field :budget, :class => 'text_field', :step => 0.01 %>
+      <%= f.number_field :budget, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
@@ -77,7 +77,7 @@
         <%= f.label :word_count %>
       </div>
       <div class="col-xs-6 field">
-        <%= f.number_field :word_count, :class => 'text_field', :step => 0.01 %>
+        <%= f.number_field :word_count, class: "text_field", step: 0.01 %>
       </div>
     </div>
     <div class="row">
@@ -85,7 +85,7 @@
         <%= f.label :minutes_in_file %>
       </div>
       <div class="col-xs-6 field">
-        <%= f.number_field :minutes_in_file, :class => 'text_field', :step => 0.01 %>
+        <%= f.number_field :minutes_in_file, class: "text_field", step: 0.01 %>
       </div>
     </div>
   <div class="row">
@@ -93,7 +93,7 @@
       <%= f.label :special_request %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.text_field :special_request %>
+      <%= f.text_area :special_request %>
     </div>
   </div>
   <div class="row">
@@ -101,7 +101,7 @@
       <%= f.label :sample_text %>
     </div>
     <div class="col-xs-6 field">
-      <%= f.text_field :sample_text %>
+      <%= f.text_area :sample_text %>
     </div>
   </div>
   <div class="row">
