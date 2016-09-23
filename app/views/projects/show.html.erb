@@ -36,6 +36,7 @@
         <%= link_to "Manage Your Bid", edit_project_bid_path(@project, bid) %>
       <% end %>
       <% if @project.user_id == current_user.id %>
+        <%= link_to "See Profile", user_path(bid.user) %>
         <%= button_to "Accept", "/bids/#{bid.id}/complete", method: :patch %>
       <% end %>
     </td>
@@ -71,8 +72,11 @@
 
   <p><%= link_to "See Source", @project.document.url(:original, false), target: "_blank" %></p>
 
-  <p>See Translation</p>
-
+  <% if @project.completed_document_file_name %>
+    <p><%= link_to "See Translated Document", @project.completed_document.url(:original, false), target: "_blank" %></p>
+  <% else %>
+    Vendor has not yet uploaded anything.
+  <% end %>
 <!-- This is the client's view for Projects if not completed yet !-->
 <% if @project.accepted_bid_id && !@project.completed_client %>
   <%= button_to "Mark Completed", "/projects/#{@project.id}/completeclient", method: :patch %>
@@ -83,6 +87,21 @@
 <!-- This is the beginning of the translator's view !-->
 
 <% if @project.accepted_bid_id && current_user.id == @project.vendor_id %>
-<%= link_to "See Source", @project.document.url(:original, false), target: "_blank" %>
-  <p>Upload your translation here</p>
+<p><%= link_to "See Source", @project.document.url(:original, false), target: "_blank" %></p>
+  <% if @project.completed_document_file_name%>
+    <p><%= link_to "See Uploaded Translation", @project.completed_document.url(:original, false), target: "_blank" %></p>
+  <% end %>
+
+  <%= form_for @project, html: { multipart: true } do |f| %>
+  <div class="row">
+    <div class="col-xs-3 field">
+      <%= f.label :upload_completed_document %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= f.file_field :completed_document %>
+    </div>
+  </div>
+    <div class="actions"><%= f.submit %></div>
+
+<% end %>
 <% end %>

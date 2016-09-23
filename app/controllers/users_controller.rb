@@ -6,7 +6,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def dashboard
+  end
+
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -32,7 +36,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to accounts_path
+      redirect_to dashboard_path
       flash[:notice] = "You've updated your profile!"
     else
       redirect_to accounts_edit_path

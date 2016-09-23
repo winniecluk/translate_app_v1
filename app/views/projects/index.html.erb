@@ -26,6 +26,9 @@
       Language Combination
     </th>
     <th>
+      Needs
+    </th>
+    <th>
     </th>
   </tr>
     <% @projects.each do |project| %>
@@ -51,6 +54,9 @@
       </td>
       <td>
         <%= project.language_1 %> to <%= project.language_2 %>
+      </td>
+      <td>
+        <%= project.needs %>
       </td>
       <td>
         <%= link_to "See Project", project_path(project) %>

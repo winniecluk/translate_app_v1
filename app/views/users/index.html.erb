@@ -46,6 +46,8 @@
     <th>
       Notary Fee
     </th>
+    <th>
+    </th>
   </tr>
   <% if @users.select { |user|
     user.is_translator? }.count == 0 %>
@@ -59,7 +61,7 @@
     <% if user.is_translator %>
       <tr>
         <td>
-          <%= user.f_name %> <% user.l_name %>
+          <%= link_to user.f_name + " " + user.l_name, user_path(user) %>
         </td>
         <td>
           <%= user.country %>
@@ -117,6 +119,9 @@
         </td>
         <td>
           <%= user.notary_fee %>
+        </td>
+        <td>
+          <%= link_to "See Profile", user_path(user.id) %>
         </td>
       </tr>
     <% end %>

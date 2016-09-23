@@ -48,7 +48,7 @@ class BidsController < ApplicationController
     @project.vendor_id = @bid.user_id
     if @bid.save(validate: false) && @bid.project.save(validate: false)
       flash[:notice] = "Bid accepted!"
-      redirect_to accounts_path
+      redirect_to dashboard_path
     else
       redirect_to project_path(@project)
     end
@@ -64,7 +64,7 @@ class BidsController < ApplicationController
 private
 
   def bid_params
-    params.require(:bid).permit(:budget, :delivery_date)
+    params.require(:bid).permit(:budget, :delivery_date, :message)
   end
 
 end

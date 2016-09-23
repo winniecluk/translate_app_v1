@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(project_params)
     if @project.save
-      redirect_to accounts_path
+      redirect_to dashboard_path
       flash[:notice] = "You created a new project!"
     else
       render :new
@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
-      redirect_to accounts_path
+      redirect_to dashboard_path
       flash[:notice] = "You've updated this project!"
     else
       render :edit
@@ -43,18 +43,18 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.completed_client = true
     if @project.save(validate: false)
-      redirect_to accounts_path
       flash[:notice] = "You've marked this completed!"
+      redirect_to dashboard_path
     else
-      render :show
       flash[:notice] = "Unable to mark completed."
+      render :show
     end
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to accounts_path
+    redirect_to dashboard_path
   end
 
 private
@@ -66,6 +66,7 @@ private
       :budget,
       :completed,
       :completed_client,
+      :completed_document,
       :completed_vendor,
       :delivery_date,
       :document,
@@ -75,6 +76,7 @@ private
       :minutes_in_file,
       :name,
       :need_graphic_designer,
+      :need_notarization,
       :need_transcriber,
       :need_translator,
       :sample_text,

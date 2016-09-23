@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   root to: "welcome#index"
 
-
-  resources :users, except: [:index, :show, :edit]
+  resources :users, except: [:index, :edit]
 
   resources :projects do
     resources :bids end
@@ -16,9 +15,12 @@ Rails.application.routes.draw do
 
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
-  get "/accounts", to: "users#show"
+  get "/dashboard", to: "users#dashboard"
+  # get "/accounts", to: "users#show"
   get "/accounts/edit", to: "users#edit"
   get "/vendors", to: "users#index"
+  get "/contact", to: "welcome#contact"
+  # get "/vendor/:id", to: "users#show"
 
   # get "/jobs", to: "jobs#index"
 

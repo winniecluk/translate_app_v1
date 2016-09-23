@@ -21,7 +21,7 @@
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <%= link_to "Account", accounts_edit_path %>
       &nbsp;&nbsp;|&nbsp;&nbsp;
-      <%= link_to "Dashboard", accounts_path %>
+      <%= link_to "Dashboard", dashboard_path %>
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <% if current_user.is_client %>
       <%= link_to "Vendors", vendors_path %>
@@ -31,7 +31,7 @@
       <%= link_to "Jobs", projects_path %>
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <% end %>
-      Contact
+      <%= link_to "Contact", contact_path %>
       &nbsp;&nbsp;|&nbsp;&nbsp;
   <!-- session_path leads to sessions#destroy-->
       <%= link_to 'Log Out', session_path('dummy'), method: :delete %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922172246) do
+ActiveRecord::Schema.define(version: 20160923002509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160922172246) do
     t.boolean  "accepted"
     t.string   "f_name"
     t.string   "l_name"
+    t.text     "message"
     t.index ["project_id"], name: "index_bids_on_project_id", using: :btree
     t.index ["user_id"], name: "index_bids_on_user_id", using: :btree
   end
@@ -60,8 +61,8 @@ ActiveRecord::Schema.define(version: 20160922172246) do
     t.boolean  "need_translator"
     t.boolean  "need_transcriber"
     t.boolean  "need_graphic_designer"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "kind"
     t.boolean  "assigned"
     t.boolean  "completed"
@@ -77,6 +78,11 @@ ActiveRecord::Schema.define(version: 20160922172246) do
     t.datetime "document_updated_at"
     t.boolean  "completed_client"
     t.boolean  "completed_vendor"
+    t.string   "completed_document_file_name"
+    t.string   "completed_document_content_type"
+    t.integer  "completed_document_file_size"
+    t.datetime "completed_document_updated_at"
+    t.boolean  "need_notarization"
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
