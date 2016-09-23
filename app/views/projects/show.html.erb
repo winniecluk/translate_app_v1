@@ -1,9 +1,37 @@
-<h2><%= @project.name %></h2>
-
+<div class="container">
+  <h2><%= @project.name %></h2>
+</div>
 <!-- This is for Active Bids !-->
 
 <% if !@project.accepted_bid_id %>
-<p><%= link_to "Download Source Document", @project.document.url(:original, false), target: "_blank" %></p>
+  <div class="container">
+    <div class="row">
+      <h3>Proposal:</h3>
+    </div>
+    <div class="row">
+      <strong>Budget: </strong><%= @project.budget %> USD
+    </div>
+    <div class="row">
+      <strong>Delivery Date: </strong><%= @project.delivery_date %>
+    </div>
+    <div class="row">
+      <strong>Word Count:</strong> <%= @project.word_count %>
+    </div>
+    <div class="row">
+      <strong>Language Combination:</strong> <%= @project.language_1 %> to <%= @project.language_2 %>
+    </div>
+    <div class="row">
+      <% if @project.document_file_name %>
+        <%= link_to "Download Source Document", @project.document.url(:original, false), target: "_blank", class: "btn btn-primary" %>
+       &nbsp;&nbsp;
+     <% end %>
+      <% if @project.user_id == current_user.id %>
+        <%= link_to "Edit Project", edit_project_path, class: "btn btn-warning" %>
+        &nbsp;&nbsp;
+        <%= link_to "Delete Project", project_path, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
+  </div>
   <div class="container">
     <h3>Current Bids</h3>
     <table class="table table-striped table-responsive">
@@ -16,6 +44,9 @@
       </th>
       <th>
         Proposed budget
+      </th>
+      <th>
+        Message
       </th>
       <th>
       </th>
@@ -32,12 +63,15 @@
       <%= bid.budget %>
     </td>
     <td>
+      <%= bid.message %>
+    </td>
+    <td>
       <% if bid.user_id == current_user.id %>
-        <%= link_to "Manage Your Bid", edit_project_bid_path(@project, bid) %>
+        <%= link_to "Manage Your Bid", edit_project_bid_path(@project, bid), class: "btn btn-primary" %>
       <% end %>
       <% if @project.user_id == current_user.id %>
-        <%= link_to "See Profile", user_path(bid.user) %>
-        <%= button_to "Accept", "/bids/#{bid.id}/complete", method: :patch %>
+        <%= link_to "See Profile", user_path(bid.user), class: "btn btn-primary" %>
+        <%= button_to "Accept", "/bids/#{bid.id}/complete", method: :patch, class: "btn btn-success" %>
       <% end %>
     </td>
   </tr>
@@ -50,17 +84,10 @@
     </tr>
   <% end %>
 </table>
-</div>
-
-
 <% if current_user.is_translator || current_user.is_transcriber || current_user.is_graphic_designer %>
-  <%= link_to "Make Bid", new_project_bid_path(@project) %>
+  <%= link_to "Make Bid", new_project_bid_path(@project), class: "btn btn-success" %>
 <% end %>
-<% if @project.user_id == current_user.id %>
-  <%= link_to "Edit Project", edit_project_path %>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  <%= link_to "Delete Project", project_path, method: :delete, data: { confirm: "Are you sure?"} %>
-<% end %>
+</div>
 
 <% end %>
 <!-- This is the end of active bids -->
@@ -69,17 +96,19 @@
  <!-- This is the client's view for Projects In Progress/Completed -->
 
 <% if @project.accepted_bid_id && current_user.id == @project.user_id %>
-
-  <p><%= link_to "See Source", @project.document.url(:original, false), target: "_blank" %></p>
-
+  <div class="container">
   <% if @project.completed_document_file_name %>
-    <p><%= link_to "See Translated Document", @project.completed_document.url(:original, false), target: "_blank" %></p>
+    <p><%= link_to "See Translated Document", @project.completed_document.url(:original, false), target: "_blank", class: "btn btn-default" %></p>
   <% else %>
     Vendor has not yet uploaded anything.
   <% end %>
+  </div>
 <!-- This is the client's view for Projects if not completed yet !-->
 <% if @project.accepted_bid_id && !@project.completed_client %>
-  <%= button_to "Mark Completed", "/projects/#{@project.id}/completeclient", method: :patch %>
+<div class="container">
+  <%= link_to "See Source", @project.document.url(:original, false), target: "_blank", class: "btn btn-primary" %>
+  <%= button_to "Mark Completed", "/projects/#{@project.id}/completeclient", method: :patch, class: "btn btn-success" %>
+  </div>
 <% end %>
 <% end %>
 <!-- This is the end of the client's view !-->
@@ -87,11 +116,7 @@
 <!-- This is the beginning of the translator's view !-->
 
 <% if @project.accepted_bid_id && current_user.id == @project.vendor_id %>
-<p><%= link_to "See Source", @project.document.url(:original, false), target: "_blank" %></p>
-  <% if @project.completed_document_file_name%>
-    <p><%= link_to "See Uploaded Translation", @project.completed_document.url(:original, false), target: "_blank" %></p>
-  <% end %>
-
+  <div class="container">
   <%= form_for @project, html: { multipart: true } do |f| %>
   <div class="row">
     <div class="col-xs-3 field">
@@ -101,7 +126,12 @@
       <%= f.file_field :completed_document %>
     </div>
   </div>
-    <div class="actions"><%= f.submit %></div>
-
+    <div class="actions">
+        <% if @project.completed_document_file_name %>
+          <p><%= link_to "See Uploaded Translation", @project.completed_document.url(:original, false), target: "_blank", class: "btn btn-default" %></p>
+        <% end %>
+        <%= link_to "See Source", @project.document.url(:original, false), target: "_blank", class: "btn btn-primary" %>
+        <%= f.submit "Update Project", class: "btn btn-success" %></div>
+  </div>
 <% end %>
 <% end %>

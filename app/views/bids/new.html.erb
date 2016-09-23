@@ -1,41 +1,41 @@
 
 
-<h1>Bid on <%= @project.name %></h1>
+<h2>Bid on <%= @project.name %></h2>
 
-<div class="alert alert-info" role="alert"><%= notice %></div>
+<div class="custom-notice"><%= notice %></div>
 
 <div class="container">
   <h4>
     <%= @project.user.f_name %> <%= @project.user.l_name %>'s Proposal</h4>
   <div class="row">
-    <div class="col-xs-2 field">
-      Language Combination
+    <div class="col-xs-3 field">
+      <strong>Language Combination: </strong>
     </div>
-    <div class="col-xs-6 field">
+    <div class="col-xs-6 field text-left">
       <%= @project.language_1 %> to <%= @project.language_2 %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-2 field">
-      Word Count
+    <div class="col-xs-3 field">
+      <strong>Word Count: </strong>
     </div>
-    <div class="col-xs-6 field">
+    <div class="col-xs-6 field text-left">
       <%= @project.word_count %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-2 field">
-      Proposed budget
+    <div class="col-xs-3 field">
+      <strong>Proposed budget: </strong>
     </div>
-    <div class="col-xs-6 field">
+    <div class="col-xs-6 field text-left">
       <%= @project.budget %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-2 field">
-      Proposed delivery date
+    <div class="col-xs-3 field">
+      <strong>Proposed delivery date: </strong>
     </div>
-    <div class="col-xs-6 field">
+    <div class="col-xs-6 field text-left">
       <%= @project.delivery_date %>
     </div>
   </div>
@@ -45,29 +45,29 @@
   <h4>Your Bid</h4>
 <%= form_for @bid, url: project_bids_path(@project, @bid) do |f| %>
   <div class="row">
-    <div class="col-xs-2 field">
-      <%= f.label :proposed_budget %>
+    <div class="col-xs-3 field">
+      <%= f.label "Proposed budget: " %>
     </div>
-    <div class="col-xs-6 field">
-      <%= f.number_field :budget, :class => 'text_field', :step => 0.01 %>
+    <div class="col-xs-6 field text-left">
+      <%= f.number_field :budget, class: "text_field", step: 0.01 %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-2 field">
-      <%= f.label :proposed_delivery_date %>
+    <div class="col-xs-3 field">
+      <%= f.label "Proposed delivery date: " %>
     </div>
-    <div class="col-xs-6 field">
+    <div class="col-xs-6 field text-left">
       <%= f.date_select :delivery_date, :order => [:month, :day, :year] %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-2 field">
-      <%= f.label :message %>
+    <div class="col-xs-3 field">
+      <%= f.label "Message: " %>
     </div>
-    <div class="col-xs-6 field">
-      <%= f.text_field :message %>
+    <div class="col-xs-6 field text-left">
+      <%= f.text_area :message %>
     </div>
   </div>
-<div class="actions"><%= f.submit %></div>
+<div class="actions"><%= f.submit "Make Bid", class: "btn btn-success" %></div>
 <% end %>
 </div>

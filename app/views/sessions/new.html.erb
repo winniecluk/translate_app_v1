@@ -1,13 +1,31 @@
-<h1>Log In</h1>
-<div class="alert alert-danger" role="alert"><%= alert %></div>
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Log In</h3>
+    </div>
   </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+  <%= form_tag sessions_path do %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= label_tag :email %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= text_field_tag :email, params[:email] %>
+    </div>
   </div>
-  <div class="actions"><%= submit_tag "Log In" %></div>
-<% end %>
+  <div class="row">
+    <div class="col-xs-2 field">
+      <%= label_tag :password %>
+    </div>
+    <div class="col-xs-6 field">
+      <%= password_field_tag :password %>
+    </div>
+  </div>
+  <div class="custom-alert"><%= alert %></div>
+  <div class="row">
+    <div class="col-xs-12 actions">
+      <%= submit_tag "Log In", :class => "btn btn-success" %>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,19 +1,17 @@
-<div class="alert alert-info" role="alert"><%= notice %></div>
-<div class="alert alert-danger" role="alert"><%= alert %></div>
+<div class="custom-notice"><%= notice %></div>
+<div class="custom-alert"><%= alert %></div>
 
 <!-- This is the beginning of the client view -->
 <div class="container">
   <% if current_user.is_client %>
     <p>
-      <%= link_to "Create New Project", new_project_path %>
+      <%= link_to "Create New Project", new_project_path, :class => "btn btn-success" %>
     </p>
 </div>
-
-<%= image_tag current_user.avatar.url(:thumb) %>
-
 <!-- This is the client's Unassigned Projects table !-->
-<h3>Unassigned Projects</h3>
+
 <div class="container">
+  <h3>Unassigned Projects</h3>
   <table class="table table-striped table-responsive">
     <tr>
       <th>
@@ -59,7 +57,7 @@
         <%= project.language_1 %> to <%= project.language_2 %>
       </td>
       <td>
-        <%= link_to "See Current Bids", project_path(project) %>
+        <%= link_to "See Current Bids", project_path(project), class: "btn btn-primary" %>
       </td>
     </tr>
   <% end %>
@@ -129,7 +127,7 @@
             <%= project.accepted_bid.f_name %> <%= project.accepted_bid.l_name %>
           </td>
           <td>
-            <%= link_to "Edit Details", project_path(project) %>
+            <%= link_to "Check Project", project_path(project), class: "btn btn-success" %>
           </td>
         </tr>
       <% end %>
@@ -193,7 +191,7 @@
           <%= project.accepted_bid.f_name %> <%= project.accepted_bid.l_name %>
         </td>
         <td>
-          <%= link_to "Edit Details", project_path(project) %>
+          <%= link_to "See Documents", project_path(project), class: "btn btn-success" %>
         </td>
       </tr>
     <% end %>
@@ -213,9 +211,9 @@
 
 <!-- This is the beginning of the translator/transcriber/graphic designer view !-->
 <% if current_user.is_translator || current_user.is_transcriber || current_user.is_graphic_designer %>
-  <p>
-    <%= link_to "Jobs Board", projects_path %>
-  </p>
+  <div class="container">
+    <%= link_to "Jobs Board", projects_path, class: "btn btn-success" %>
+  </div>
 
 <!--   This is the vendor's Active Bids table! -->
 <div class="container">
@@ -271,7 +269,7 @@
               <%= bid.project.language_1 %> to <%= bid.project.language_2 %>
             </td>
             <td>
-              <%= link_to "See Project", project_path(bid.project) %>
+              <%= link_to "See Project", project_path(bid.project), class: "btn btn-primary" %>
             </td>
           </tr>
         <% end %>
@@ -341,7 +339,7 @@
             <%= bid.project.language_1 %> to <%= bid.project.language_2 %>
           </td>
           <td>
-            <%= link_to "Edit Details", project_path(bid.project) %>
+            <%= link_to "Edit Details", project_path(bid.project), class: "btn btn-warning" %>
           </td>
         </tr>
       <% end %>

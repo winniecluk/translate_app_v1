@@ -2,7 +2,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6">
-      <div>Picture</div>
+      <div id="portrait">
+        <% if @user.avatar_file_name %>
+          <%= image_tag current_user.avatar.url(:thumb) %>
+        <% else %>
+          <%= "No picture uploaded." %>
+        <% end %>
+      </div>
       <%= @user.f_name %> <%= @user.l_name %> is currently
       <% if @user.available %>
         <strong>available</strong>
@@ -13,17 +19,17 @@
       Website: <%= @user.web_link %>
     </div>
     <div class="col-sm-6">
-      <div>
+      <div class="profile-details">
         Email: <%= @user.email %>
       </div>
-      <div>
+      <div class="profile-details">
         Phone: <%= @user.phone_number %>
       </div>
-      <div>
+      <div class="profile-details">
         Location: <%= @user.city %> <%= @user.country %>
       </div>
-      <div>
-        <%= @user.time_zone %>
+      <div class="profile-details">
+        Time Zone: <%= @user.time_zone %>
       </div>
     </div>
   </div>

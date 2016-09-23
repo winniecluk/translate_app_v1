@@ -1,6 +1,6 @@
 
-<div class="alert alert-info" role="alert"><%= notice %></div>
-<div class="alert alert-danger" role="alert"><%= alert %></div>
+<div class="custom-notice"><%= notice %></div>
+<div class="custom-alert"><%= alert %></div>
 <div class="container">
 <h3>Jobs Board</h3>
 <table class="table table-hover table-striped table-responsive">
@@ -60,7 +60,7 @@
         <%= project.needs %>
       </td>
       <td>
-        <%= link_to "See Project", project_path(project) %>
+        <%= link_to "See Current Bids", project_path(project), class: "btn btn-primary" %>
       </td>
     </tr>
     <% end %>

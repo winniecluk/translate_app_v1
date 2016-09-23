@@ -23,7 +23,11 @@
 $jumbotron-font: Righteous, monospace;
 
 * {
-  border: 1px solid red
+  border: 1px solid red;
+}
+
+body {
+  font-size: 16px;
 }
 
 .jumbotron {
@@ -35,18 +39,37 @@ $jumbotron-font: Righteous, monospace;
   padding: 15px;
 }
 
+.custom-alert {
+  margin: 15px;
+  background-color: #f2dede;
+  color: red;
+}
+
+.custom-notice {
+  margin: 15px;
+  background-color: #c1fff6;
+  color: green;
+}
+
 .input {
   width: 100%;
   height: 100px;
+}
+
+.greeting {
+  color: white;
 }
 
 .row {
   margin: 15px;
 }
 
-
-li {
+.inline-nav {
   display: inline-block;
+}
+
+.description {
+  margin: 0 15px;
 }
 
 .container {
@@ -57,4 +80,14 @@ li {
   text-align: center;
   font-weight: bold;
   font-size: 2em;
+}
+
+.profile-details {
+  margin-top: 10px;
+}
+
+#portrait {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
 }
