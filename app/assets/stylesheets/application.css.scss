@@ -18,8 +18,31 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Righteous");
+
+$jumbotron-font: Righteous, monospace;
+
+* {
+  border: 1px solid red
+}
 
 .jumbotron {
   background-color: #77ecff;
-  color: white
+  color: white;
+  font-size: 3em;
+  font-family: $jumbotron-font;
+  margin: 0;
+  padding: 15px;
+}
+
+.row {
+  margin: 15px;
+}
+
+li {
+  display: inline-block;
+}
+
+.container {
+  margin: 10px;
 }

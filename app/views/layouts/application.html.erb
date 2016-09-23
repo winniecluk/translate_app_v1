@@ -11,36 +11,44 @@
 
   <body>
     <div class="jumbotron">
-      APP_NAME
+      FOLIO
     </div>
-    <div class="navbar">
     <% if current_user %>
-      Welcome, <%= current_user.f_name %>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      Inbox
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <%= link_to "Account", accounts_edit_path %>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <%= link_to "Dashboard", dashboard_path %>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <% if current_user.is_client %>
-      <%= link_to "Vendors", vendors_path %>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <% end %>
-      <% if current_user.is_translator %>
-      <%= link_to "Jobs", projects_path %>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <% end %>
-      <%= link_to "Contact", contact_path %>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-  <!-- session_path leads to sessions#destroy-->
-      <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
+    <div class="navbar navbar-default navbar-link">
+      <div class="container">
+        <ul>
+          <li>Welcome, <%= current_user.f_name %></li>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <li>Inbox</li>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <li><%= link_to "Account", accounts_edit_path %></li>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <% if current_user.is_client %>
+          <li><%= link_to "Vendors", vendors_path %></li>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <% end %>
+          <% if current_user.is_translator %>
+          <li><%= link_to "Jobs", projects_path %></li>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <% end %>
+          <li><%= link_to "Contact", contact_path %></li>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+      <!-- session_path leads to sessions#destroy-->
+          <li><%= link_to 'Log Out', session_path('dummy'), method: :delete %></li>
+        </ul>
+      </div>
+    </div>
     <% else %>
-      <%= link_to 'Log In', login_path %>
+    <ul>
+      <li><%= link_to 'Log In', login_path %></li>
       &nbsp;&nbsp;|&nbsp;&nbsp;
-      <%= link_to 'Sign Up', new_user_path %>
+      <li><%= link_to 'Sign Up', new_user_path %></li>
+    </ul>
     <% end %>
     </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
