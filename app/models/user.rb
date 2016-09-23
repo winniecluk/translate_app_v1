@@ -11,26 +11,19 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   def ata_certified?
-    "yes" if judicial_court else "no" end
+    "yes" if judicial_court else "no"
   end
 
   def judicial_court?
-    "yes" if judicial_court else "no" end
+    "yes" if judicial_court else "no"
   end
 
   def trados?
-    "yes, " + trados_version if trados else "no" end
+    "yes, " + trados_version if trados else "no"
   end
 
   def available?
-    "yes" if available else "no" end
+    "yes" if available else "no"
   end
 
-  # def unassigned_project?
-  #   project.accepted_bid_id.nil?
-  # end
-
-  # def no_projects?
-  #   projects.select { |project| }
-  # end
 end
