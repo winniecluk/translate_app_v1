@@ -9,50 +9,53 @@
 Project.destroy_all
 User.destroy_all
 
-ezra_raez = User.create(
-  {is_client: true, f_name: "Ezra", l_name: "Raez", email: "ezra@ga.co",
+clarissa_notmyreallastname = User.create(
+  {is_translator: true, f_name: "Clarissa", l_name: "Notmyreallastname", email: "clarissa@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
-    phone_number: "123-123-1234", city: "Temple", country: "USA", bio: "Hello!",
-    web_link: "www.google.com", company: "Douglas Emmett", position: "paralegal"}
+    phone_number: "123-123-1234", city: "Los Angeles", country: "USA", bio: "I was born!",
+    web_link: "www.clarissa.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.18,
+    minimum_rate: 30, rush_rate_per_word: 0.16, rush_minimum: 50, notary_fee: 10, specialization: "legal",
+    ata_certified: true, available: true, use_trados: true, trados_version: "2015"}
     )
 
-phil_lamplugh = User.create(
-  {is_client: true, f_name: "Phil", l_name: "Lamplugh", email: "phil@ga.co",
+sochin_imnothererightnow = User.create(
+  {is_translator: true, f_name: "Sochin", l_name: "Imnothererightnow", email: "sochin@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
-    phone_number: "123-123-1234", city: "Culver", country: "USA", bio: "Hello!",
-    web_link: "www.google.com", company: "Benoit LLC", position: "Accounts manager"})
+    phone_number: "123-123-1234", city: "Honolulu", country: "USA", bio: "I was born on an island!",
+    web_link: "www.sochin.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.13,
+    minimum_rate: 40, rush_rate_per_word: 0.15, rush_minimum: 50, notary_fee: 20, specialization: "medical",
+    available: true}
+    )
 
-jim_brown = User.create(
-  {is_client: true, f_name: "Jim", l_name: "Brown", email: "jim@ga.co",
+victoria_queentoo = User.create(
+  {is_translator: true, f_name: "Victoria", l_name: "Queentoo", email: "victoria@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
-    phone_number: "123-123-1234", city: "San Gabriel", country: "USA", bio: "Hello!",
-    web_link: "www.google.com", company: "DaVita", position: "coordinator"}
-  )
+    phone_number: "123-123-1234", city: "Weho!", country: "USA", bio: "I was born too!",
+    web_link: "www.victoria.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.12,
+    minimum_rate: 60, rush_rate_per_word: 0.18, rush_minimum: 80, notary_fee: 20, specialization: "medical",
+    available: true, use_trados: true, trados_version: "2011"}
+    )
 
-carrie_zhao = User.create(
-  {is_translator: true, f_name: "Carrie", l_name: "Zhao", email: "carrie@ga.co",
+joseph_somethingreallyasian = User.create(
+  {is_translator: true, f_name: "Joseph", l_name: "Somethingreallyasian", email: "joseph@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
-    phone_number: "123-123-1234", city: "Arcadia", country: "USA", bio: "Hello!",
-    web_link: "www.google.com", rate_per_word: 0.14, ata_certified: true, available: true}
-  )
-
-jing_zheng = User.create(
-  {is_translator: true, f_name: "Jing", l_name: "Zheng", email: "jing@ga.co",
+    phone_number: "123-123-1234", city: "Koreatown", country: "USA", bio: "I was also born!",
+    web_link: "www.joseph.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.15,
+    minimum_rate: 45, rush_rate_per_word: 0.18, rush_minimum: 60, notary_fee: 10, specialization: "patents",
+    ata_certified: true, judicial_court: true, available: true }
+    )
+james_icangetawaywiththiscauseimasian = User.create(
+  {is_translator: true, f_name: "James", l_name: "Icantgetawaywiththiscauseimasian", email: "james@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
-    phone_number: "123-123-1234", city: "Arcadia", country: "USA", bio: "Hello!",
-    web_link: "www.google.com", rate_per_word: 0.13, ata_certified: true, available: true}
-  )
-
-sochin_ancheta = User.create(
-  {is_translator: true, f_name: "Sochin", l_name: "Ancheta", email: "sochin@ga.co",
-    password: "abcd1234", password_confirmation: "abcd1234",
-    phone_number: "123-123-1234", city: "Arcadia", country: "USA", bio: "Hello!",
-    web_link: "www.google.com", rate_per_word: 0.12, ata_certified: false, available: false}
-  )
+    phone_number: "123-123-1234", city: "Santa Clarita", country: "USA", bio: "I'm the first person to ever be born!",
+    web_link: "www.james.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.16,
+    minimum_rate: 40, rush_rate_per_word: 0.18, rush_minimum: 60, notary_fee: 15, specialization: "real estate",
+    judicial_court: true, available: true }
+    )
 
 marcela_becerra= User.create(
   {is_transcriber: true, f_name: "Marcela", l_name: "Becerra", email: "marcela@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
-    phone_number: "123-123-1234", city: "Inglewood", country: "USA", bio: "Hello!",
+    phone_number: "123-123-1234", city: "Inglewood", country: "USA", bio: "Was I born?",
     web_link: "www.google.com", rate_per_minute: 5, available: true}
 )
