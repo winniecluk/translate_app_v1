@@ -9,8 +9,8 @@
 Project.destroy_all
 User.destroy_all
 
-clarissa_notmyreallastname = User.create(
-  {is_translator: true, f_name: "Clarissa", l_name: "Notmyreallastname", email: "clarissa@ga.co",
+clarissa_bitar = User.create(
+  {is_translator: true, f_name: "Clarissa", l_name: "Bitar", email: "clarissa@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Los Angeles", country: "USA", bio: "I was born!",
     web_link: "www.clarissa.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.18,
@@ -18,8 +18,8 @@ clarissa_notmyreallastname = User.create(
     ata_certified: true, available: true, trados: true, trados_version: "2015"}
     )
 
-sochin_imnothererightnow = User.create(
-  {is_translator: true, f_name: "Sochin", l_name: "Imnothererightnow", email: "sochin@ga.co",
+sochin_ancheta = User.create(
+  {is_translator: true, f_name: "Sochin", l_name: "Ancheta", email: "sochin@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Honolulu", country: "USA", bio: "I was born on an island!",
     web_link: "www.sochin.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.13,
@@ -27,8 +27,8 @@ sochin_imnothererightnow = User.create(
     available: true}
     )
 
-victoria_queentoo = User.create(
-  {is_translator: true, f_name: "Victoria", l_name: "Queentoo", email: "victoria@ga.co",
+victoria_kurzweg = User.create(
+  {is_translator: true, f_name: "Victoria", l_name: "Kurzweg", email: "victoria@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Weho!", country: "USA", bio: "I was born too!",
     web_link: "www.victoria.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.12,
@@ -36,8 +36,8 @@ victoria_queentoo = User.create(
     available: true, trados: true, trados_version: "2011"}
     )
 
-joseph_somethingreallyasian = User.create(
-  {is_translator: true, f_name: "Joseph", l_name: "Somethingreallyasian", email: "joseph@ga.co",
+joseph_kim = User.create(
+  {is_translator: true, f_name: "Joseph", l_name: "Kim", email: "joseph@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Koreatown", country: "USA", bio: "I was also born!",
     web_link: "www.joseph.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.15,
@@ -45,8 +45,8 @@ joseph_somethingreallyasian = User.create(
     ata_certified: true, judicial_court: true, available: true }
     )
 
-james_icangetawaywiththiscauseimasian = User.create(
-  {is_translator: true, f_name: "James", l_name: "Icangetawaywiththiscauseimasian", email: "james@ga.co",
+james_tak = User.create(
+  {is_translator: true, f_name: "James", l_name: "Tak", email: "james@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Santa Clarita", country: "USA", bio: "I'm the first person to ever be born!",
     web_link: "www.james.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.16,
@@ -54,8 +54,8 @@ james_icangetawaywiththiscauseimasian = User.create(
     judicial_court: true, available: true }
     )
 
-mondale_imalsoasian = User.create(
-  {is_translator: true, f_name: "Mondale", l_name: "Imalsoasian", email: "mondale@ga.co",
+mondale_felix = User.create(
+  {is_translator: true, f_name: "Mondale", l_name: "Felix", email: "mondale@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Hollywood", country: "USA", bio: "I was never born.",
     web_link: "www.mondale.com", language_1: "English", language_2: "Bulgarian", rate_per_word: 0.13,
@@ -63,8 +63,8 @@ mondale_imalsoasian = User.create(
     available: true }
     )
 
-berry_theresnowayimasian = User.create(
-  {is_translator: true, f_name: "Berry", l_name: "Theresnowayimasian", email: "berry@ga.co",
+berry_zhong = User.create(
+  {is_translator: true, f_name: "Berry", l_name: "Zhong", email: "berry@ga.co",
     password: "abcd1234", password_confirmation: "abcd1234",
     phone_number: "123-123-1234", city: "Beaversdam", country: "Narnia", bio: "I was born in a dream.",
     web_link: "www.berry.com", language_1: "Bulgarian", language_2: "English", rate_per_word: 0.20,
