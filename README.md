@@ -15,13 +15,13 @@ translators, and for translators to deliver the translated documents to their cl
 
 <hr>
 
-##<a name="links">1. Links</a>
+## <a name="links">1. Links</a>
 
 [Deployed App][1]  
 [Github repo (you're here!)](https://github.com/winniecluk/translate_app_v1)  
 [Trello Board](https://trello.com/b/qN2I2rkg/folio)
 
-##<a name="get-started">2. Getting started</a>
+## <a name="get-started">2. Getting started</a>
 
 Go to the [deployed app][1] on Heroku. For now, you should only sign up as a client or as one of the three vendor classes: translators, transcribers, and graphic designers.
 
@@ -45,7 +45,7 @@ If the client chooses your bid, that bid will be removed from your Active Bids t
 migrate down to your Projects In Progress table. Once you've completed the project, click on the 
 project name in your Progrects In Progress and upload your work. If the client is satisfied, they'll mark it complete, and the details of the project will show up in your completed projects table.
 
-##<a name="origin">3. Origin</a>
+## <a name="origin">3. Origin</a>
 
 I started this project because I wanted to fix all the problems I saw at my old job:
 
@@ -53,11 +53,11 @@ I started this project because I wanted to fix all the problems I saw at my old 
 |-------|----------------------|
 |Clients, vendors, and agencies are all communicating with each other via email, which can be slow and inefficient. Emails get lost very easily in the ether.|Have an online transaction platform that spares words, gathers all pertinent information in one place, and expedites communication about the project.|
 |Inexperienced vendors who send out solicitation emails often do not state their most important qualifications, minimum rates, rush rates, etc.; it's more inconvenient to hire them. | Put these fields in a form and require them to complete it.|
-|When wendors who worked with us often went on vacation, they would usually send us an email stating their vacation dates. We kept a shared spreadsheet just to mark when people were going on vacation, but nobody would check the spreadsheet because we'd be too busy.|I just need to know if people are available or not. Give them a profile page and if the vendor goes on vacation, they can change their available status themselves.|
+|When vendors who worked with us often went on vacation, they would usually send us an email stating their vacation dates. We kept a shared spreadsheet just to mark when people were going on vacation, but nobody would check the spreadsheet because we'd be too busy.|I just need to know if people are available or not. Give them a profile page and if the vendor goes on vacation, they can change their available status themselves.|
 |Clients with time-sensitive projects worry that their work will not be delivered on time and are constantly checking in on the status over the phone.|Create a real-time editing console that will show the translator's work as they're working on it and persist the data.|
 |Clients calling to say, "I got this marriage certificate translated by you guys three years ago. Can you find it for me?" **Me:** "Sir, I'm looking through the records right now; we didn't do any work for you in 2013."  **Client:** "Oh, you know what? It was four years ago. Could you look again?"  **Me:** "Sir, we don't have any documents past the last three years. I'm sorry, but I really need to get back to work."|Clients should have a place where they can access the documents themselves.|
 
-##<a name="tools">4. Explanations of technologies used</a>
+## <a name="tools">4. Explanations of technologies used</a>
 
 **Ruby version:** 2.3.1  
 **Rails version:** 5.0.0  
@@ -90,7 +90,7 @@ I spent all my time dating Rails, so I didn't spend much time around Bootstrap.
 Bootstrap knows the way to Pandora, not Narnia. 
 
 
-##<a name="problems">5. Unsolved Problems</a>
+## <a name="problems">5. Unsolved Problems</a>
 
 Where to start.
 
